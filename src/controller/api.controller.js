@@ -1,5 +1,5 @@
 export default class Api {
-    static token = JSON.parse(localStorage.getItem("@kenzie-habits:token"))
+    static token = (localStorage.getItem("@kenzie-habits:token"))
 
     static async login(dataLogin) {
         const url = "https://habits-kenzie.herokuapp.com/api/userLogin"
