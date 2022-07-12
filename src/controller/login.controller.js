@@ -18,6 +18,32 @@ export default class Login{
 
             if(localStorage.getItem("@kenzie-habits:token") !== 'undefined' && localStorage.getItem("@kenzie-habits:dados") !== 'undefined'){
                 window.location.href = '../views/main.views.html'
+            }else{
+                localStorage.removeItem("@kenzie-habits:token");
+                localStorage.removeItem("@kenzie-habits:dados")
+
+                const div = document.querySelector('.container');
+                
+                const divPopUpErr = document.createElement('div');
+                divPopUpErr.classList.add('popup_err');
+                
+
+                const closePopUp = document.createElement('p');
+                closePopUp.innerText ="x"
+              
+                const popUpContent = document.createElement('div');
+                popUpContent.classList.add('popup_conteudo');
+
+                const textErr = document.createElement('h3');
+                textErr.innerText = "Email ou senha incorretos!"
+
+                popUpContent.append(textErr);
+                divPopUpErr.append(closePopUp, popUpContent);
+                div.append(divPopUpErr);
+
+                divPopUpErr.addEventListener('click', (event) => {
+                    divPopUpErr.style.display = "none"
+                })
             }     
         })
     }
