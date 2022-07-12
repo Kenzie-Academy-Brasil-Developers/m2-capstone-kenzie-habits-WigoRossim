@@ -21,6 +21,7 @@
 
 <body>
     <header class="container_header">
+
         <div class="caixa_logo">
             <h1>Kenzie Habit</h1>
             <div class="dropdown_perfil">
@@ -31,19 +32,35 @@
                 </div>
             </div>
         </div>
+
         <div class="caixa_header_color">
-            <div class="caixa_usuario">
-
-                
-
-                
-                
+            <div class="caixa_usuario">  
             </div>
         </div>
 
         
+        
     </header>
-    
+
+
+    <div class="caixa_editar_perfil">
+        
+        <form class="form_edit_perfil" action="#">
+
+            <div class="caixa_titulo_fechar">
+                <h2>Editar Perfil</h1> 
+                <button><i class="fa-solid fa-x fechar_editar_perfil"></i></button>
+            </div>
+
+            <label for="nome_user">Nome</label>
+            <input type="text" name="nome" id="nome_user" disabled>
+            
+            <label for="url_avatar_perfil">URL da imagem do perfil</label>
+            <input type="text" name="url" id="url_avatar_perfil" placeholder="https://imagem.com">
+
+            <button class="btn_edit_perfil" type="submit">Salvar Alterações</button>
+        </form>
+    </div>
 
     <script type="module" src="../scripts/main.scripts.js"></script>
 </body>
