@@ -17,7 +17,7 @@ export default class Login{
             await Api.login(data)
 
             if(localStorage.getItem("@kenzie-habits:token") !== 'undefined' && localStorage.getItem("@kenzie-habits:dados") !== 'undefined'){
-                window.location.href = '../views/main.views.html'
+                window.location.href = "./src/views/main.views.html"
             }else{
                 localStorage.removeItem("@kenzie-habits:token");
                 localStorage.removeItem("@kenzie-habits:dados")
