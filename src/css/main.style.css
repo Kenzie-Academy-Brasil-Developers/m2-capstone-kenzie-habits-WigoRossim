@@ -1,0 +1,79 @@
+header.container_header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+header .caixa_logo {
+    width: inherit;
+    height: 58px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header .caixa_logo h1 {
+    font-family: var(--fonte-base);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 27px;
+    color: var(--color-blue);
+}
+header .caixa_logo figure{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+header .caixa_logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+header .caixa_header_color {
+    width: 100%;
+    height: 158px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-blue);
+}
+@media(min-width: 620px) {
+header .caixa_header_color {
+    align-items: center;
+}
+}
+.caixa_usuario {
+    width: inherit;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+@media(min-width: 620px) {
+    .caixa_usuario {
+        width: 820px;
+        margin-top: 0px;
+    }
+}
+header .caixa_usuario figure {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-left: 1.1rem;
+}
+header .caixa_usuario img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+header .caixa_usuario h2 {
+    font-family: var(--fonte-base);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-grey-6);
+}
+@media(min-width: 620px) {
+    header .caixa_usuario h2 {
+        align-self: flex-start;
+        margin-top: 0.3rem;
+    }
+}
