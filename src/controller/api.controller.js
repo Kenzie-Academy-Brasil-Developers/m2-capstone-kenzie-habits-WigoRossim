@@ -1,5 +1,5 @@
 export default class Api {
-    static token = /*JSON.parse*/(localStorage.getItem("@kenzie-habits:token"))
+    static token = JSON.parse(localStorage.getItem("@kenzie-habits:token"))
 
     static async login(dataLogin) {
         const url = "https://habits-kenzie.herokuapp.com/api/userLogin"
@@ -15,7 +15,7 @@ export default class Api {
                 localStorage.setItem("@kenzie-habits:token", JSON.stringify(res.token))
                 localStorage.setItem("@kenzie-habits:dados", JSON.stringify(res.response))
 
-                return res
+                
             })
             .catch(err => err)
 

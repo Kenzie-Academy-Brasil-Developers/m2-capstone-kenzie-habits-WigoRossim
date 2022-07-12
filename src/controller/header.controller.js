@@ -4,7 +4,8 @@ import Api from "./api.controller.js"
 export default class headerController {
 
     static async perfilFotoNome() {
-        const responseLogin = await Api.login()
+        const responseLogin = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
+
         const div = document.querySelector(".caixa_usuario")
         const figure = document.createElement("figure")
         const img = document.createElement("img")
@@ -28,6 +29,7 @@ export default class headerController {
         caixaEditarPerfil.classList.add("botao_dropdown_menu")
         caixaSair.classList.add("botao_dropdown_menu")
         btnEditarUser.classList.add("btn_abrir_edicao")
+        btnSair.classList.add("btn_sair_app")
 
         spanIconSair.innerHTML = "<i class=\"fa-solid fa-arrow-left fa-2x\"></i>"
         spanIconeUser.innerHTML= "<i class=\"fa-solid fa-user fa-2x\"></i>"
@@ -38,10 +40,9 @@ export default class headerController {
         caixaSair.append(spanIconSair, btnSair)
         dropdownMenu.append(caixaEditarPerfil, caixaSair)
     }
-
     
     static async criarPerfilEdicao() {
-        const responseDados = JSON.parse(localStorage.getItem("@kenzie-habits:token"))
+        const responseDados = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
 
         const body = document.querySelector("body")
         const caixaEditarPefil = document.createElement("div")
@@ -67,7 +68,7 @@ export default class headerController {
         inputNome.type = "text"
         inputNome.name = "nome_user"
         inputNome.id = "nome_user"
-        inputNome.value = responseDados.usr_name
+        inputNome.placeholder = responseDados.usr_name
         inputNome.disabled
 
         labelUrl.for = "url_avatar_perfil"
@@ -85,7 +86,6 @@ export default class headerController {
         caixaEditarPefil.append(form)
         body.append(caixaEditarPefil)
     }
-
     static async abrirEditarPerfil() {
         const botaoEditarPerfil = document.querySelector(".btn_abrir_edicao")
         const modalEditarPerfil = document.querySelector(".caixa_editar_perfil")
@@ -104,6 +104,15 @@ export default class headerController {
             modalEditarPerfil.classList.remove("form_edit_perfil_active")
         })
 
+    }
+
+    static sairDoApp() {
+        const btnSairApp = document.querySelector("btn_sair_app")
+
+        btnSairApp.addEventListener("click", (event) => {
+            localStorage.removeItem("@kenzie-habits:token")
+            localStorage.removeItem("@kenzie-habits:dados")
+        })
     }
 
 
