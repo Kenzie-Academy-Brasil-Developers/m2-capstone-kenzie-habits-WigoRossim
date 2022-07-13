@@ -5,7 +5,6 @@ export default class headerController {
 
     static async perfilFotoNome() {
         const responseLogin = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
-
         const div = document.querySelector(".caixa_usuario")
         const figure = document.createElement("figure")
         const img = document.createElement("img")
@@ -16,7 +15,16 @@ export default class headerController {
         figure.append(img)
         div.append(figure, h2)
     }
-
+    static perfilDropDownMenu() {
+        const responseLogin = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
+        const div = document.querySelector(".dropdown_perfil")
+        const figure = document.createElement("figure")
+        const img = document.createElement("img")
+        img.src = responseLogin.usr_image
+        img.alt = responseLogin.usr_name
+        figure.append(img)
+        div.append(figure)
+    }
     static dropDownMenu() {
         const dropdownMenu = document.querySelector(".dropdown_menu")
         const caixaEditarPerfil = document.createElement("div")
@@ -25,22 +33,18 @@ export default class headerController {
         const caixaSair = document.createElement("div")
         const spanIconSair = document.createElement("span")
         const btnSair= document.createElement("button")
-
         caixaEditarPerfil.classList.add("botao_dropdown_menu")
         caixaSair.classList.add("botao_dropdown_menu")
         btnEditarUser.classList.add("btn_abrir_edicao")
         btnSair.classList.add("btn_sair_app")
-
         spanIconSair.innerHTML = "<i class=\"fa-solid fa-arrow-left fa-2x\"></i>"
         spanIconeUser.innerHTML= "<i class=\"fa-solid fa-user fa-2x\"></i>"
         btnEditarUser.innerText = "Editar Perfil"
         btnSair.innerText = "Sair do app"
-
         caixaEditarPerfil.append(spanIconeUser, btnEditarUser)
         caixaSair.append(spanIconSair, btnSair)
         dropdownMenu.append(caixaEditarPerfil, caixaSair)
     }
-    
     static async criarPerfilEdicao() {
         const responseDados = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
 
@@ -105,7 +109,6 @@ export default class headerController {
         })
 
     }
-
     static sairDoApp() {
         const btnSairApp = document.querySelector(".btn_sair_app")
 
@@ -115,7 +118,4 @@ export default class headerController {
             window.location.href = "../../index.html"
         })
     }
-
-
-
 }

@@ -31,7 +31,6 @@ header .caixa_logo img {
     object-fit: cover;
 }
 
-
 .dropdown_perfil{
     position: relative;
 }
@@ -87,7 +86,6 @@ header .caixa_logo img {
     color: var(--color-darck-blue);
 }
 
-
 header .caixa_header_color {
     width: 100%;
     height: 158px;
@@ -142,7 +140,6 @@ header .caixa_usuario h2 {
         margin-top: 0.3rem;
     }
 }
-
 
 .caixa_editar_perfil {
     width: 100%;
