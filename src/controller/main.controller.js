@@ -13,7 +13,7 @@ import Api from "./api.controller.js"
 //    "habit_category": "saude"
 //})
 
-console.log(novoHabito)
+//console.log(novoHabito)
 
 const inputTitulo = document.getElementsByName("title")[0]
 const inputDescricao = document.getElementsByName("comment")[0]
