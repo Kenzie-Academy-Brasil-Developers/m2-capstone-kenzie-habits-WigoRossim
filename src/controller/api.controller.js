@@ -14,8 +14,6 @@ export default class Api {
             .then((res) => {
                 localStorage.setItem("@kenzie-habits:token", JSON.stringify(res.token))
                 localStorage.setItem("@kenzie-habits:dados", JSON.stringify(res.response))
-
-                return res
             })
             .catch(err => err)
 
@@ -36,6 +34,7 @@ export default class Api {
             .then(res => res)
             .catch(err => err)
 
+            location.reload(true)
         return resposta
     }
 
