@@ -48,6 +48,23 @@ export default class Tabela {
         })
     }
 
+    static filtraHabitosConcluidos(){
+        const buttonConcluidos = document.querySelector(".concluidos")
+        buttonConcluidos.addEventListener('click', (event) =>{
+            
+        })
+
+    }
+
+    static mostraTodosHabitos(){
+
+        const buttonTodos = document.querySelector(".todos")
+        buttonTodos.addEventListener('click', async (event) => {
+            console.log(event.target)
+
+        })
+
+    }
 }
 
 export class Habito {
@@ -78,6 +95,10 @@ export class Habito {
         })
     }
 }
+
+Tabela.filtraHabitosConcluidos()
+Tabela.mostraTodosHabitos()
+
 
 Habito.criarHabito()
 
