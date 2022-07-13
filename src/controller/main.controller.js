@@ -9,7 +9,6 @@ export default class Tabela {
     static async renderizacao() {
 
         const habitos = await Api.todosHabitos()
-        console.log(habitos)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
