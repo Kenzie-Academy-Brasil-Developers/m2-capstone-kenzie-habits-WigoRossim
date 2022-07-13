@@ -7,4 +7,5 @@ headerController.dropDownMenu()
 headerController.criarPerfilEdicao()
 headerController.abrirEditarPerfil()
 headerController.fecharEditarPerfil()
+headerController.sairDoApp()
 

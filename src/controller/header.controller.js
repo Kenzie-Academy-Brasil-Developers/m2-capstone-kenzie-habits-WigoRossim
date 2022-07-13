@@ -107,11 +107,12 @@ export default class headerController {
     }
 
     static sairDoApp() {
-        const btnSairApp = document.querySelector("btn_sair_app")
+        const btnSairApp = document.querySelector(".btn_sair_app")
 
         btnSairApp.addEventListener("click", (event) => {
             localStorage.removeItem("@kenzie-habits:token")
             localStorage.removeItem("@kenzie-habits:dados")
+            window.location.href = "../../index.html"
         })
     }
 
