@@ -121,12 +121,16 @@ main {
     font-size: 1rem;
     font-weight: 500;
     font-family: var(--fonte-base);
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .concluidos {
     font-size: 1rem;
     font-weight: 500;
     font-family: var(--fonte-base);
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .botao_criar {
