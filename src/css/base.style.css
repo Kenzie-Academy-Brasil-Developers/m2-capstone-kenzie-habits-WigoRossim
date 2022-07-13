@@ -11,6 +11,7 @@
     --color-grey-4: #E9ECEF;
     --color-grey-5: #F1F3F5;
     --color-grey-6: #FFFFFF;
+    --color-grey-7: #A1A1A1;
 
     /* FEEDBACK PALETTE */
     --color-sucess: #56CF8E;
@@ -21,6 +22,9 @@
     --color-shadow-modal:rgba(0, 0, 0, 0.5);
 
     --fonte-base: 'Inter', sans-serif;
+
+     /* CORES QUE NÃO ESTAVAM AQUI NA PALETA */
+     --color-white: white;
 }
 
 /* LINK FONTS CSS
