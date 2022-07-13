@@ -40,7 +40,6 @@ export default class Habito{
     inputTitulo.name = "title"
 
     labelDescricao.for = ""
-    descricao.id = "description"
     descricao.name = "comment"
 
     categoria.name = "select"
