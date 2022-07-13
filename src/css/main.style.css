@@ -35,6 +35,74 @@ header .caixa_header_color {
     justify-content: center;
     background-color: var(--color-blue);
 }
+
+/* Formulário Criar Hábito */
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 350px;
+    height: 480px;
+    font-family: var(--fonte-base);
+}
+
+.form{
+    background-color:var(--color-grey-6)
+}
+.form h1{
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.form label {
+    font-size: 14px;
+}
+.form input{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 273px;
+    height: 30px;
+    font-weight: bold;
+}
+.form textarea{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    margin-left: 20px;
+    border-style: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+ .divSelect{
+    margin-left: 20px;
+ }
+ .divSelect select{
+    margin: 10px;
+    width: 273px;
+    height: 30px;
+ }
+
+ .form button{
+    background-color: var(--color-blue);
+    width: 300px;
+    height: 35px;
+    margin-top: 20px;
+    margin-left: 5px;
+    border-radius: 5px;
+    color: var(--color-grey-6);
+ }
+
+
+
 @media(min-width: 620px) {
 header .caixa_header_color {
     align-items: center;
@@ -71,9 +139,46 @@ header .caixa_usuario h2 {
     font-size: 1.1rem;
     color: var(--color-grey-6);
 }
+
+
 @media(min-width: 620px) {
     header .caixa_usuario h2 {
         align-self: flex-start;
         margin-top: 0.3rem;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: 300px;
+    }
+    
+    .form{
+        width: 450px;
+        height: 400px;
+    }
+
+    .form input{
+        width: 350px;
+
+    }
+
+    .form textarea{
+        width: 350px;
+    }
+
+    .form select{
+        width: 350px;
+    }
+
+    .divSelect select{
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .form button{
+        width: 400px;
     }
 }
