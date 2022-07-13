@@ -72,6 +72,7 @@ export default class headerController {
         inputNome.name = "nome_user"
         inputNome.id = "nome_user"
         inputNome.value = responseDados.usr_name
+        inputNome.disabled = true
 
         labelUrl.for = "url_avatar_perfil"
         labelUrl.innerText = "URL da imagem do perfil"

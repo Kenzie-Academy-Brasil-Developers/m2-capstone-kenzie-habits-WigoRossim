@@ -9,7 +9,6 @@ export default class Tabela {
     static async renderizacao() {
 
         const habitos = await Api.todosHabitos()
-        console.log(habitos)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
@@ -36,8 +35,11 @@ export default class Tabela {
 
 
             checkboxInput.addEventListener("click", (event) => {
-                    tdTitulo.classList.toggle("check_habito_comcluido")
-               })
+                tdTitulo.classList.toggle("check_habito_comcluido")
+                if (checkboxInput.checked) {
+                    elem.habit_status = true
+                }
+            })
 
 
             tr.id = elem.habit_id
@@ -51,8 +53,9 @@ export default class Tabela {
             tdCheckbox.append(checkboxInput)
             tdCategoria.append(botaoCategoria)
             tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
+
+
             
-            console.log(tr)
             this.tabela.append(tr)
         })
     }
@@ -88,3 +91,4 @@ export class Habito {
 }
 
 Habito.criarHabito()
+

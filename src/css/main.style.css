@@ -578,5 +578,5 @@ tbody td {
 
 
 .check_habito_comcluido {
-    text-decoration: overline;
+    text-decoration: line-through;
 }
