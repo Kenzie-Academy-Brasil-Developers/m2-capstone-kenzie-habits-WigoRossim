@@ -101,7 +101,9 @@ main {
 .div_tarefas {
     height: 61px;
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .titulo {
@@ -111,10 +113,8 @@ main {
 }
 
 .div_categorias {
-    margin-top: 20px;
     display: flex;
-    align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .todos {
@@ -137,7 +137,7 @@ main {
     background-color: var(--color-blue);
     text-align: center;
     height: 28px;
-    width: 120px;
+    width: 100px;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -146,6 +146,7 @@ main {
     color:var( --color-white);
     cursor: pointer;
 }
+
 
 .margin_tabela {
     margin-top: 20px;
@@ -156,10 +157,7 @@ main {
 }
 
 .tabela {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 70%;
 }
 
 tr {
@@ -187,7 +185,6 @@ tr th {
 }
 
 .descricao_tabela {
-    display: none;
     font-family: var(--fonte-base);
     font-weight: 500;
     font-size: 1rem;
@@ -195,7 +192,6 @@ tr th {
 }
 
 .categoria_tabela {
-    display: none;
     font-family: var(--fonte-base);
     font-weight: 500;
     font-size: 1rem;
@@ -224,19 +220,16 @@ tr th {
 }
 
 .descricao_texto {
-    display: none;
     font-family: var(--fonte-base);
     font-weight: 500;
     font-size: 1rem;
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-
-.categoria_texto {
-    display: none;
-}
-
 
 .botao_texto {
-    display: none;
     background-color: var(--color-light-blue);
     width: 83px;
     height: 24px;
@@ -266,4 +259,42 @@ tbody td {
     height: 20px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+
+@media(max-width: 620px) {
+    .descricao_tabela {
+        display: none;
+    }
+
+    .descricao_texto {
+        display: none;
+    }
+
+    .categoria_tabela {
+        display: none;
+    }
+
+    .categoria_texto {
+        display: none;
+    }
+
+    .botao_texto {
+        display: none;
+    }
+
+    .tabela {
+        width: 100%;
+    }
+
+
+    .div_tarefas{
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+    }
+
+    .div_categorias{
+        gap: 50px;
+    }
 }
