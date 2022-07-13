@@ -28,16 +28,16 @@ export default class headerController {
         const dropdownMenu = document.querySelector(".dropdown_menu")
         const caixaEditarPerfil = document.createElement("div")
         const spanIconeUser = document.createElement("span")
-        const btnEditarUser= document.createElement("button")
+        const btnEditarUser = document.createElement("button")
         const caixaSair = document.createElement("div")
         const spanIconSair = document.createElement("span")
-        const btnSair= document.createElement("button")
+        const btnSair = document.createElement("button")
         caixaEditarPerfil.classList.add("botao_dropdown_menu")
         caixaSair.classList.add("botao_dropdown_menu")
         btnEditarUser.classList.add("btn_abrir_edicao")
         btnSair.classList.add("btn_sair_app")
         spanIconSair.innerHTML = "<i class=\"fa-solid fa-arrow-left fa-2x\"></i>"
-        spanIconeUser.innerHTML= "<i class=\"fa-solid fa-user fa-2x\"></i>"
+        spanIconeUser.innerHTML = "<i class=\"fa-solid fa-user fa-2x\"></i>"
         btnEditarUser.innerText = "Editar Perfil"
         btnSair.innerText = "Sair do app"
         caixaEditarPerfil.append(spanIconeUser, btnEditarUser)
@@ -58,7 +58,7 @@ export default class headerController {
         const labelUrl = document.createElement("label")
         const inputUrl = document.createElement("input")
         const btnConcluir = document.createElement("button")
-        
+
         caixaEditarPefil.classList.add("caixa_editar_perfil")
         form.classList.add("form_edit_perfil")
         caixaFecharEdicao.classList.add("caixa_titulo_fechar")
@@ -71,8 +71,7 @@ export default class headerController {
         inputNome.type = "text"
         inputNome.name = "nome_user"
         inputNome.id = "nome_user"
-        inputNome.placeholder = responseDados.usr_name
-        inputNome.disabled
+        inputNome.value = responseDados.usr_name
 
         labelUrl.for = "url_avatar_perfil"
         labelUrl.innerText = "URL da imagem do perfil"
@@ -80,7 +79,7 @@ export default class headerController {
         inputUrl.name = "url"
         inputUrl.id = "url_avatar_perfil"
         inputUrl.placeholder = "https://imagem.com"
-        inputUrl.required
+        inputUrl.required = true
 
         btnConcluir.type = "submit"
         btnConcluir.innerText = "Salvar Alterações"
@@ -89,6 +88,28 @@ export default class headerController {
         form.append(caixaFecharEdicao, labelNome, inputNome, labelUrl, inputUrl, btnConcluir)
         caixaEditarPefil.append(form)
         body.append(caixaEditarPefil)
+    }
+    static botaoDesabilitado() {
+        const btnEditPerfil = document.querySelector(".btn_edit_perfil")
+        const inputNovoAvatar = document.getElementById("url_avatar_perfil")
+        btnEditPerfil.disabled = true
+
+        inputNovoAvatar.addEventListener("input", (event) => {
+            let conteudo = inputNovoAvatar.value
+
+            if (conteudo !== null && conteudo !== "") {
+                btnEditPerfil.disabled = false;
+            } else {
+                btnEditPerfil.disabled = true;
+            }
+
+            if(conteudo === ""){
+                btnEditPerfil.classList.remove("btn_ativo")
+            }else{
+                btnEditPerfil.classList.add("btn_ativo")
+            }
+
+        })
     }
     static async abrirEditarPerfil() {
         const botaoEditarPerfil = document.querySelector(".btn_abrir_edicao")
@@ -104,17 +125,17 @@ export default class headerController {
         const form = document.querySelector(".form_edit_perfil")
         const modalEditarPerfil = document.querySelector(".caixa_editar_perfil")
         form.addEventListener("submit", async (event) => {
-           event.preventDefault()
-           const novoAvatar = {}
-           novoAvatar["usr_image"] = input.value
-           await Api.atualizarPerfil(novoAvatar)
-           const result = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
-           result["usr_image"] = input.value
-           localStorage.setItem("@kenzie-habits:dados", JSON.stringify(result))
-           modalEditarPerfil.classList.remove("form_edit_perfil_active")
+            event.preventDefault()
+            const novoAvatar = {}
+            novoAvatar["usr_image"] = input.value
+            await Api.atualizarPerfil(novoAvatar)
+            const result = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
+            result["usr_image"] = input.value
+            localStorage.setItem("@kenzie-habits:dados", JSON.stringify(result))
+            modalEditarPerfil.classList.remove("form_edit_perfil_active")
         })
 
-        
+
 
     }
     static fecharEditarPerfil() {

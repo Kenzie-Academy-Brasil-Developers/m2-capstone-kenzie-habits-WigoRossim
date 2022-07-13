@@ -10,5 +10,6 @@ headerController.abrirEditarPerfil()
 headerController.fecharEditarPerfil()
 headerController.sairDoApp()
 headerController.editarPerfil()
+headerController.botaoDesabilitado()
 
 
