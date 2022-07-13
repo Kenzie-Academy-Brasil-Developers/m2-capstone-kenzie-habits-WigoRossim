@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://kit.fontawesome.com/83e21024c7.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../css/main.style.css">
     <link rel="stylesheet" href="../css/reset.style.css">
     <link rel="stylesheet" href="../css/base.style.css">
@@ -19,22 +21,24 @@
 
 <body>
     <header class="container_header">
-        <div class="caixa_logo">
+        <div class="caixa_logo">          
             <h1>Kenzie Habit</h1>
-            <figure>
-                <img src="../assets/img/user.png" alt="menu_usuario">
-            </figure>
-        </div>
-        <div class="caixa_header_color">
-            <div class="caixa_usuario">
-                <figure>
-                    <img src="../assets/img/user.png" alt="nome_usuario">
-                </figure>
-                <h2>Nome Usuario</h2>
+            <div class="dropdown_perfil">
+                <div class="dropdown_menu">
+                </div>
             </div>
         </div>
+        <div class="caixa_header_color">
+            <div class="caixa_usuario">  
+            </div>
+        </div> 
     </header>
-</body>
-<script type = "module" src="../models/habito.models.js"></script>
+
+
+    
+   
+    <script type="module" src="../scripts/main.scripts.js"></script>
+    <script type = "module" src="../models/habito.models.js"></script>
 <script type="module" src="../controller/main.controller.js"></script>
+</body>
 </html>
