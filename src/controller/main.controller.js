@@ -44,7 +44,7 @@ export default class Tabela {
             tr.id = elem.habit_id
             tdTitulo.innerText = elem.habit_title
             tdDescricao.innerText = elem.habit_description
-            tdCategoria.innerText = elem.habit_category
+            botaoCategoria.innerText = elem.habit_category
 
             botaoEditar.append(img)
             tdEditar.append(botaoEditar)
