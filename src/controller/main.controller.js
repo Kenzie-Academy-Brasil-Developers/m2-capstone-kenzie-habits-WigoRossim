@@ -9,6 +9,7 @@ export default class Tabela {
     static async renderizacao() {
 
         const habitos = await Api.todosHabitos()
+        console.log(habitos)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
@@ -33,7 +34,7 @@ export default class Tabela {
             checkboxInput.type = "checkbox"
             img.src = "../assets/img/reticencias.png"
 
-
+            tr.id = elem.habit_id
             tdTitulo.innerText = elem.habit_title
             tdDescricao.innerText = elem.habit_description
             tdCategoria.innerText = elem.habit_category
