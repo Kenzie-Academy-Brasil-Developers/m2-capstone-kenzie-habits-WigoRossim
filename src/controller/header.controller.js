@@ -127,12 +127,14 @@ export default class headerController {
         form.addEventListener("submit", async (event) => {
             event.preventDefault()
             const novoAvatar = {}
-            novoAvatar["usr_image"] = input.value
-            await Api.atualizarPerfil(novoAvatar)
+            if(input.value !== "") {
+                novoAvatar["usr_image"] = input.value
+                await Api.atualizarPerfil(novoAvatar)
             const result = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
             result["usr_image"] = input.value
             localStorage.setItem("@kenzie-habits:dados", JSON.stringify(result))
             modalEditarPerfil.classList.remove("form_edit_perfil_active")
+            }  
         })
 
 
