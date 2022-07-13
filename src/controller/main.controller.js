@@ -18,20 +18,20 @@ import Api from "./api.controller.js"
 const inputTitulo = document.getElementsByName("title")[0]
 const inputDescricao = document.getElementsByName("comment")[0]
 const inputCategoria = document.getElementsByName("select")[0]
-const button = document.querySelector("button")
+const button = document.getElementsByClassName("botao_inserir")[0]
 const div = document.querySelector(".container")
 
-button.addEventListener("click", async (event) =>{
+button.addEventListener("click", async (event) => {
     event.preventDefault()
-
+    console.log("oi")
 
     const data = {
-        
+
         "habit_title": `${inputTitulo.value}`,
         "habit_description": `${inputDescricao.value}`,
         "habit_category": `${inputCategoria.value}`,
     }
-   
+
 
     const newHabit = await Api.criarHabito(data)
     console.log(newHabit)

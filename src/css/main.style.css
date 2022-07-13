@@ -34,13 +34,16 @@ header .caixa_logo img {
     border-radius: 50%;
     object-fit: cover;
 }
-.dropdown_perfil{
+
+.dropdown_perfil {
     position: relative;
 }
+
 .dropdown_perfil:hover .dropdown_menu {
     display: flex;
 
 }
+
 .dropdown_menu {
     position: absolute;
     right: -5px;
@@ -55,6 +58,7 @@ header .caixa_logo img {
     display: none;
     z-index: 1000;
 }
+
 .botao_dropdown_menu {
     display: flex;
     align-items: center;
@@ -63,6 +67,7 @@ header .caixa_logo img {
     width: 230px;
     height: 44px;
 }
+
 .botao_dropdown_menu button {
     width: 230px;
     height: 44px;
@@ -74,6 +79,7 @@ header .caixa_logo img {
     line-height: 32px;
     cursor: pointer;
 }
+
 .botao_dropdown_menu span {
     display: block;
     width: 28px;
@@ -82,10 +88,12 @@ header .caixa_logo img {
     margin-left: 1rem;
     cursor: pointer;
 }
-.botao_dropdown_menu:hover button{
+
+.botao_dropdown_menu:hover button {
     color: var(--color-grey-2);
 }
-.botao_dropdown_menu:hover span{
+
+.botao_dropdown_menu:hover span {
     color: var(--color-darck-blue);
 }
 
@@ -101,9 +109,11 @@ header .caixa_header_color {
     header .caixa_header_color {
         align-items: center;
 
-/* Formulário Criar Hábito */
+        /* Formulário Criar Hábito */
+    }
+}
 
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,18 +122,22 @@ header .caixa_header_color {
     height: 480px;
     font-family: var(--fonte-base);
 }
-.form{
-    background-color:var(--color-grey-6)
+
+.form {
+    background-color: var(--color-grey-6)
 }
-.form h1{
+
+.form h1 {
     font-size: 20px;
     margin-bottom: 30px;
     font-weight: 600;
 }
+
 .form label {
     font-size: 14px;
 }
-.form input{
+
+.form input {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -133,7 +147,8 @@ header .caixa_header_color {
     height: 30px;
     font-weight: bold;
 }
-.form textarea{
+
+.form textarea {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -143,20 +158,22 @@ header .caixa_header_color {
     font-size: 16px;
     font-weight: bold;
 }
+
 /*.form select{
     
 }*/
 
- .divSelect{
+.divSelect {
     margin-left: 20px;
- }
- .divSelect select{
+}
+
+.divSelect select {
     margin: 10px;
     width: 273px;
     height: 30px;
- }
+}
 
- .form button{
+.form button {
     background-color: var(--color-blue);
     width: 300px;
     height: 35px;
@@ -164,7 +181,7 @@ header .caixa_header_color {
     margin-left: 5px;
     border-radius: 5px;
     color: var(--color-grey-6);
- }
+}
 
 
 
@@ -275,7 +292,7 @@ main {
     font-size: 1rem;
     font-weight: 500;
     font-family: var(--fonte-base);
-    color:var( --color-white);
+    color: var(--color-white);
     cursor: pointer;
 }
 
@@ -392,7 +409,7 @@ tbody td {
     font-family: var(--fonte-base);
     font-weight: 600;
     font-size: 0.9rem;
-    color: var( --color-white);
+    color: var(--color-white);
     background-color: var(--color-blue);
     width: 152px;
     height: 20px;
@@ -412,6 +429,7 @@ tbody td {
     justify-content: center;
     align-items: center;
 }
+
 .form_edit_perfil {
     width: 96%;
     max-width: 502px;
@@ -423,12 +441,14 @@ tbody td {
     gap: 2rem;
     border-radius: 8px;
 }
+
 .caixa_titulo_fechar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 2.1rem;
 }
+
 .caixa_titulo_fechar h2 {
     font-family: var(--fonte-base);
     font-weight: 600;
@@ -436,10 +456,12 @@ tbody td {
     color: var(--color-grey-1);
     margin-left: 0.8rem;
 }
+
 .caixa_titulo_fechar button {
     color: #ADB5BD;
     margin-right: 2.4rem;
 }
+
 .form_edit_perfil label {
     font-family: var(--fonte-base);
     font-weight: 400;
@@ -448,6 +470,7 @@ tbody td {
     align-self: flex-start;
     margin-left: 1.7rem;
 }
+
 .form_edit_perfil input {
     background-color: var(--color-grey-5);
     width: 94%;
@@ -478,15 +501,16 @@ tbody td {
     font-size: 0.9rem;
     line-height: 19px;
 }
+
 .form_edit_perfil .btn_edit_perfil:hover {
     background-color: var(--color-darck-blue);
 }
 
-.form_edit_perfil_active{
+.form_edit_perfil_active {
     display: flex;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -494,29 +518,30 @@ tbody td {
     width: 300px;
 }
 
-.form{
+.form {
     width: 450px;
     height: 400px;
 }
 
-.form input{
+.form input {
     width: 350px;
 
 }
 
-.form textarea{
+.form textarea {
     width: 350px;
 }
 
-.form select{
+.form select {
     width: 350px;
 }
 
-.divSelect select{
+.divSelect select {
     margin: 0 auto;
     margin-top: 10px;
 }
 
-.form button{
+.form button {
     width: 400px;
+}
 }
