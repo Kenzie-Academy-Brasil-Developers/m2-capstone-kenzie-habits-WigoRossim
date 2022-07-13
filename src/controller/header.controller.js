@@ -2,7 +2,6 @@ import Api from "./api.controller.js"
 
 
 export default class headerController {
-
     static async perfilFotoNome() {
         const responseLogin = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
         const div = document.querySelector(".caixa_usuario")
@@ -45,7 +44,7 @@ export default class headerController {
         caixaSair.append(spanIconSair, btnSair)
         dropdownMenu.append(caixaEditarPerfil, caixaSair)
     }
-    static async criarPerfilEdicao() {
+    static async criarModalPerfilEdicao() {
         const responseDados = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
 
         const body = document.querySelector("body")
@@ -81,6 +80,7 @@ export default class headerController {
         inputUrl.name = "url"
         inputUrl.id = "url_avatar_perfil"
         inputUrl.placeholder = "https://imagem.com"
+        inputUrl.required
 
         btnConcluir.type = "submit"
         btnConcluir.innerText = "Salvar Alterações"
@@ -98,6 +98,24 @@ export default class headerController {
             event.preventDefault()
             modalEditarPerfil.classList.add("form_edit_perfil_active")
         })
+    }
+    static editarPerfil() {
+        const input = document.querySelector("#url_avatar_perfil")
+        const form = document.querySelector(".form_edit_perfil")
+        const modalEditarPerfil = document.querySelector(".caixa_editar_perfil")
+        form.addEventListener("submit", async (event) => {
+           event.preventDefault()
+           const novoAvatar = {}
+           novoAvatar["usr_image"] = input.value
+           await Api.atualizarPerfil(novoAvatar)
+           const result = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
+           result["usr_image"] = input.value
+           localStorage.setItem("@kenzie-habits:dados", JSON.stringify(result))
+           modalEditarPerfil.classList.remove("form_edit_perfil_active")
+        })
+
+        
+
     }
     static fecharEditarPerfil() {
         const botaoFecharEdicao = document.querySelector(".fechar_editar_perfil")
@@ -119,3 +137,4 @@ export default class headerController {
         })
     }
 }
+

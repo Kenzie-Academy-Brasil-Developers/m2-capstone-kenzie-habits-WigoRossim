@@ -2,18 +2,18 @@ import Habito from "../models/habito.models.js"
 import Api from "./api.controller.js"
 
 
-const newLogin = await Api.login({
-    "email": "grupo1Caique@mail.com",
-    "password": "41c6bf513bb94e29da99477a699abeb5"
-})
+//const newLogin = await Api.login({
+//    "email": "grupo1Caique@mail.com",
+//    "password": "41c6bf513bb94e29da99477a699abeb5"
+//})
+//
+//const novoHabito =  await Api.criarHabito({
+//    "habit_title": "dwada",
+//    "habit_description": "dddw",
+//    "habit_category": "saude"
+//})
 
-const novoHabito =  await Api.criarHabito({
-    "habit_title": "dwada",
-    "habit_description": "dddw",
-    "habit_category": "saude"
-})
-
-console.log(novoHabito)
+//console.log(novoHabito)
 
 const inputTitulo = document.getElementsByName("title")[0]
 const inputDescricao = document.getElementsByName("comment")[0]

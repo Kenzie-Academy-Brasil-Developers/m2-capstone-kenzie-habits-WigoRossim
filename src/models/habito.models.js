@@ -30,7 +30,6 @@ export default class Habito{
     descricao.rows = "4"
     descricao.cols = "28"
 
-
     labelTitulo.type = "text"
     labelTitulo.id = "title"
     labelTitulo.name = "title"
@@ -70,6 +69,7 @@ export default class Habito{
        body.append(div);
 
         // div.style.display = "none"
+        console.log(div)
     }  
 } 
 
