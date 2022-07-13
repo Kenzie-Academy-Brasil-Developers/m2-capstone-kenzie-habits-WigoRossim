@@ -81,6 +81,9 @@ header .caixa_header_color {
     font-weight: bold;
 }
 
+.form select{
+    
+}
 
  .divSelect{
     margin-left: 20px;
@@ -181,4 +184,5 @@ header .caixa_usuario h2 {
     .form button{
         width: 400px;
     }
+
 }
