@@ -197,26 +197,34 @@ header .caixa_usuario h2 {
     border-radius: 4px;
     border: 2px solid var(--color-grey-5);
 }
+
 .form_edit_perfil input::placeholder {
     font-family: var(--fonte-base);
     font-weight: 400;
-    font-size: 0.8px;
+    font-size: 0.8rem;
     line-height: 32px;
     padding-left: 2.7rem;
 }
+
 .form_edit_perfil .btn_edit_perfil {
     width: 94%;
     max-width: 438px;
     height: 40px;
     border-radius: 4px;
-    background-color: #A0ADF9;
-    border: 2px solid #A0ADF9;
+    background-color: var(--color-blue);
+    border: 2px solid transparent;
     color: var(--color-grey-6);
     font-family: var(--fonte-base);
     font-weight: 600;
     font-size: 0.9rem;
     line-height: 19px;
 }
+.form_edit_perfil .btn_edit_perfil:hover {
+    background-color: var(--color-darck-blue);
+}
+
+
 .form_edit_perfil_active{
     display: flex;
 }
+
