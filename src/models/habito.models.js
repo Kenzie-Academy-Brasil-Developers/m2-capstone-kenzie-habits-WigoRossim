@@ -70,6 +70,5 @@ export default class Modal{
        body.append(div);
 
         // div.style.display = "none"
-        console.log(div)
     }  
 } 

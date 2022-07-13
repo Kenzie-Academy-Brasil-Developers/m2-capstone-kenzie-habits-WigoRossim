@@ -9,7 +9,6 @@ export default class Tabela {
     static async renderizacao() {
 
         const habitos = await Api.todosHabitos()
-        console.log(habitos)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
@@ -23,6 +22,7 @@ export default class Tabela {
             const botaoEditar = document.createElement("button")
             const img = document.createElement("img")
 
+            checkboxInput.classList.add("check_sucess")
             tdCheckbox.classList.add("checkbox")
             tdTitulo.classList.add("texto_div")
             tdDescricao.classList.add("descricao_texto")
@@ -34,17 +34,24 @@ export default class Tabela {
             checkboxInput.type = "checkbox"
             img.src = "../assets/img/reticencias.png"
 
+            checkboxInput.addEventListener("click", (event) => {
+                tdTitulo.classList.toggle("check_habito_comcluido")
+                if (checkboxInput.checked) {
+                    Api.finalizarHabito(elem.habit_id)
+                }
+            })
+
             tr.id = elem.habit_id
             tdTitulo.innerText = elem.habit_title
             tdDescricao.innerText = elem.habit_description
             tdCategoria.innerText = elem.habit_category
-
 
             botaoEditar.append(img)
             tdEditar.append(botaoEditar)
             tdCheckbox.append(checkboxInput)
             tdCategoria.append(botaoCategoria)
             tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
+
             this.tabela.append(tr)
         })
     }
@@ -65,25 +72,18 @@ export class Habito {
             console.log("oi")
 
             const data = {
-
                 "habit_title": `${inputTitulo.value}`,
                 "habit_description": `${inputDescricao.value}`,
                 "habit_category": `${inputCategoria.value}`,
             }
 
-
             const newHabit = await Api.criarHabito(data)
             console.log(newHabit)
             div.style.display = "flex"
-            // location.reload()
+            location.reload()
         })
     }
 }
 
 Habito.criarHabito()
-
-
-
-
-
 
