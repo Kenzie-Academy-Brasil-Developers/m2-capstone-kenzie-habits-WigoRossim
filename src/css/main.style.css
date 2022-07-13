@@ -399,6 +399,17 @@ tbody td {
     border-bottom: 1px solid var(--color-grey-4);
     padding: 10px;
 }
+
+.reticencias{
+    width: 20px;
+    height: 20px;
+}
+
+.botao_editar{
+    background-color: transparent;
+}
+
+
 .carregar_conteudo {
     margin-top: 20px;
     text-align: center;
@@ -533,4 +544,6 @@ tbody td {
 }
 .form button {
     width: 400px;
+}
+
 }
