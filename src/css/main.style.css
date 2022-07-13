@@ -387,7 +387,7 @@ tr th {
     font-size: 0.9rem;
     text-align: center;
 }
-tbody td {
+.tabela td {
     border-top: 1px solid var(--color-grey-4);
     border-bottom: 1px solid var(--color-grey-4);
     padding: 10px;
