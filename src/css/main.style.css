@@ -22,8 +22,10 @@ header .caixa_logo h1 {
 }
 
 header .caixa_logo figure {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-blue);
 }
 
 header .caixa_logo img {
@@ -31,6 +33,68 @@ header .caixa_logo img {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.dropdown_perfil {
+    position: relative;
+}
+
+.dropdown_perfil:hover .dropdown_menu {
+    display: flex;
+
+}
+
+.dropdown_menu {
+    position: absolute;
+    right: -5px;
+    top: 37px;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--color-grey-6);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    width: 246px;
+    height: 124px;
+    display: none;
+    z-index: 1000;
+}
+
+.botao_dropdown_menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 230px;
+    height: 44px;
+}
+
+.botao_dropdown_menu button {
+    width: 230px;
+    height: 44px;
+    background-color: var(--color-grey-6);
+    color: var(--color-grey-2);
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.botao_dropdown_menu span {
+    display: block;
+    width: 28px;
+    height: 33px;
+    color: var(--color-blue);
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.botao_dropdown_menu:hover button {
+    color: var(--color-grey-2);
+}
+
+.botao_dropdown_menu:hover span {
+    color: var(--color-darck-blue);
 }
 
 header .caixa_header_color {
@@ -44,6 +108,87 @@ header .caixa_header_color {
 @media(min-width: 620px) {
     header .caixa_header_color {
         align-items: center;
+
+        /* Formulário Criar Hábito */
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 350px;
+    height: 480px;
+    font-family: var(--fonte-base);
+}
+
+.form {
+    background-color: var(--color-grey-6)
+}
+
+.form h1 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.form label {
+    font-size: 14px;
+}
+
+.form input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 273px;
+    height: 30px;
+    font-weight: bold;
+}
+
+.form textarea {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    margin-left: 20px;
+    border-style: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*.form select{
+    
+}*/
+
+.divSelect {
+    margin-left: 20px;
+}
+
+.divSelect select {
+    margin: 10px;
+    width: 273px;
+    height: 30px;
+}
+
+.form button {
+    background-color: var(--color-blue);
+    width: 300px;
+    height: 35px;
+    margin-top: 20px;
+    margin-left: 5px;
+    border-radius: 5px;
+    color: var(--color-grey-6);
+}
+
+
+
+@media(min-width: 620px) {
+    header .caixa_header_color {
+        align-items: center;
+        height: 183px;
     }
 }
 
@@ -58,6 +203,7 @@ header .caixa_header_color {
 
 @media(min-width: 620px) {
     .caixa_usuario {
+        position: relative;
         width: 820px;
         margin-top: 0px;
     }
@@ -67,6 +213,8 @@ header .caixa_usuario figure {
     width: 3.5rem;
     height: 3.5rem;
     margin-left: 1.1rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-grey-6);
 }
 
 header .caixa_usuario img {
@@ -74,6 +222,7 @@ header .caixa_usuario img {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--color-grey-6);
 }
 
 header .caixa_usuario h2 {
@@ -143,7 +292,7 @@ main {
     font-size: 1rem;
     font-weight: 500;
     font-family: var(--fonte-base);
-    color:var( --color-white);
+    color: var(--color-white);
     cursor: pointer;
 }
 
@@ -247,13 +396,22 @@ tbody td {
     padding: 10px;
 }
 
+.reticencias{
+    width: 20px;
+    height: 20px;
+}
+
+.botao_editar{
+    background-color: transparent;
+}
+
 .carregar_conteudo {
     margin-top: 20px;
     text-align: center;
     font-family: var(--fonte-base);
     font-weight: 600;
     font-size: 0.9rem;
-    color: var( --color-white);
+    color: var(--color-white);
     background-color: var(--color-blue);
     width: 152px;
     height: 20px;
@@ -297,4 +455,131 @@ tbody td {
     .div_categorias{
         gap: 50px;
     }
+}
+.caixa_editar_perfil {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 1000;
+    position: absolute;
+    background-color: var(--color-shadow-modal);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_edit_perfil {
+    width: 96%;
+    max-width: 502px;
+    height: 449px;
+    background-color: var(--color-grey-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 8px;
+}
+
+.caixa_titulo_fechar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.1rem;
+}
+
+.caixa_titulo_fechar h2 {
+    font-family: var(--fonte-base);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--color-grey-1);
+    margin-left: 0.8rem;
+}
+
+.caixa_titulo_fechar button {
+    color: #ADB5BD;
+    margin-right: 2.4rem;
+}
+
+.form_edit_perfil label {
+    font-family: var(--fonte-base);
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 17px;
+    align-self: flex-start;
+    margin-left: 1.7rem;
+}
+
+.form_edit_perfil input {
+    background-color: var(--color-grey-5);
+    width: 94%;
+    max-width: 438px;
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid var(--color-grey-5);
+}
+
+.form_edit_perfil input::placeholder {
+    font-family: var(--fonte-base);
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 32px;
+    padding-left: 2.7rem;
+}
+
+.form_edit_perfil .btn_edit_perfil {
+    width: 94%;
+    max-width: 438px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--color-blue);
+    border: 2px solid transparent;
+    color: var(--color-grey-6);
+    font-family: var(--fonte-base);
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 19px;
+}
+
+.form_edit_perfil .btn_edit_perfil:hover {
+    background-color: var(--color-darck-blue);
+}
+
+.form_edit_perfil_active {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.form {
+    width: 450px;
+    height: 400px;
+}
+
+.form input {
+    width: 350px;
+
+}
+
+.form textarea {
+    width: 350px;
+}
+
+.form select {
+    width: 350px;
+}
+
+.divSelect select {
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.form button {
+    width: 400px;
 }
