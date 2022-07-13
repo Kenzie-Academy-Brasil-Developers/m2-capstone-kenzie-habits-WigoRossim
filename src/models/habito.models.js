@@ -1,8 +1,9 @@
 import Api from "../controller/api.controller.js";
 
-export default class Habito{
+export default class Modal{
+
     
-    static modal(){
+    static modal_habito(){
     const body = document.querySelector("body")
     const div = document.createElement("div")
     div.classList.add("container")
@@ -55,8 +56,8 @@ export default class Habito{
     labelCategoria.innerText = "Categoria"
 
     option.innerText =  "Selecionar categoria"
-    optionCasa.innerText =   "casa"
-    optionEstudo.innerText = "Estudo"
+    optionCasa.innerText =   "Casa"
+    optionEstudo.innerText = "Estudos"
     optionLazer.innerText = "Lazer"
     optionTrabalho.innerText = "Trabalho"
     optionSaude.innerText = "Saúde"
