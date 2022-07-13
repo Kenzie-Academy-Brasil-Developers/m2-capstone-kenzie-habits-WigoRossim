@@ -26,6 +26,7 @@ export default class Habito{
     const optionTrabalho = document.createElement("option")
     const optionSaude = document.createElement("option")
     const button = document.createElement("button")
+    button.classList.add("botao_inserir")
 
     descricao.rows = "4"
     descricao.cols = "28"
@@ -55,7 +56,7 @@ export default class Habito{
     labelCategoria.innerText = "Categoria"
 
     option.innerText =  "Selecionar categoria"
-    optionCasa.innerText =   "Casa"
+    optionCasa.innerText =   "casa"
     optionEstudo.innerText = "Estudo"
     optionLazer.innerText = "Lazer"
     optionTrabalho.innerText = "Trabalho"
@@ -72,5 +73,3 @@ export default class Habito{
         console.log(div)
     }  
 } 
-
-Habito.modal()

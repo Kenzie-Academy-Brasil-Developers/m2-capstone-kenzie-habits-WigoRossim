@@ -1,4 +1,5 @@
 import headerController from "../controller/header.controller.js"
+import Habito from "../models/habito.models.js"
 
 
 
@@ -11,5 +12,6 @@ headerController.fecharEditarPerfil()
 headerController.sairDoApp()
 headerController.editarPerfil()
 headerController.botaoDesabilitado()
+Habito.modal()
 
 

@@ -4,6 +4,7 @@ header.container_header {
     flex-direction: column;
     width: 100%;
 }
+
 header .caixa_logo {
     width: inherit;
     height: 58px;
@@ -11,6 +12,7 @@ header .caixa_logo {
     justify-content: space-around;
     align-items: center;
 }
+
 header .caixa_logo h1 {
     font-family: var(--fonte-base);
     font-weight: 700;
@@ -18,12 +20,14 @@ header .caixa_logo h1 {
     line-height: 27px;
     color: var(--color-blue);
 }
+
 header .caixa_logo figure {
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 50%;
     border: 2px solid var(--color-blue);
 }
+
 header .caixa_logo img {
     width: 100%;
     height: 100%;
@@ -31,13 +35,15 @@ header .caixa_logo img {
     object-fit: cover;
 }
 
-.dropdown_perfil{
+.dropdown_perfil {
     position: relative;
 }
+
 .dropdown_perfil:hover .dropdown_menu {
     display: flex;
 
 }
+
 .dropdown_menu {
     position: absolute;
     right: -5px;
@@ -52,6 +58,7 @@ header .caixa_logo img {
     display: none;
     z-index: 1000;
 }
+
 .botao_dropdown_menu {
     display: flex;
     align-items: center;
@@ -60,6 +67,7 @@ header .caixa_logo img {
     width: 230px;
     height: 44px;
 }
+
 .botao_dropdown_menu button {
     width: 230px;
     height: 44px;
@@ -71,6 +79,7 @@ header .caixa_logo img {
     line-height: 32px;
     cursor: pointer;
 }
+
 .botao_dropdown_menu span {
     display: block;
     width: 28px;
@@ -79,10 +88,12 @@ header .caixa_logo img {
     margin-left: 1rem;
     cursor: pointer;
 }
-.botao_dropdown_menu:hover button{
+
+.botao_dropdown_menu:hover button {
     color: var(--color-grey-2);
 }
-.botao_dropdown_menu:hover span{
+
+.botao_dropdown_menu:hover span {
     color: var(--color-darck-blue);
 }
 
@@ -94,9 +105,14 @@ header .caixa_header_color {
     background-color: var(--color-blue);
 }
 
-/* Formulário Criar Hábito */
+@media(min-width: 620px) {
+    header .caixa_header_color {
+        align-items: center;
+    }
+}
 
-.container{
+
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,18 +121,22 @@ header .caixa_header_color {
     height: 480px;
     font-family: var(--fonte-base);
 }
-.form{
-    background-color:var(--color-grey-6)
+
+.form {
+    background-color: var(--color-grey-6)
 }
-.form h1{
+
+.form h1 {
     font-size: 20px;
     margin-bottom: 30px;
     font-weight: 600;
 }
+
 .form label {
     font-size: 14px;
 }
-.form input{
+
+.form input {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -126,7 +146,8 @@ header .caixa_header_color {
     height: 30px;
     font-weight: bold;
 }
-.form textarea{
+
+.form textarea {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -136,20 +157,22 @@ header .caixa_header_color {
     font-size: 16px;
     font-weight: bold;
 }
+
 /*.form select{
     
 }*/
 
- .divSelect{
+.divSelect {
     margin-left: 20px;
- }
- .divSelect select{
+}
+
+.divSelect select {
     margin: 10px;
     width: 273px;
     height: 30px;
- }
+}
 
- .form button{
+.form button {
     background-color: var(--color-blue);
     width: 300px;
     height: 35px;
@@ -157,7 +180,7 @@ header .caixa_header_color {
     margin-left: 5px;
     border-radius: 5px;
     color: var(--color-grey-6);
- }
+}
 
 
 
@@ -167,6 +190,7 @@ header .caixa_header_color {
         height: 183px;
     }
 }
+
 .caixa_usuario {
     width: inherit;
     height: 4rem;
@@ -175,6 +199,7 @@ header .caixa_header_color {
     gap: 1rem;
     margin-top: 1rem;
 }
+
 @media(min-width: 620px) {
     .caixa_usuario {
         position: relative;
@@ -182,6 +207,7 @@ header .caixa_header_color {
         margin-top: 0px;
     }
 }
+
 header .caixa_usuario figure {
     width: 3.5rem;
     height: 3.5rem;
@@ -189,6 +215,7 @@ header .caixa_usuario figure {
     border-radius: 50%;
     border: 2px solid var(--color-grey-6);
 }
+
 header .caixa_usuario img {
     width: 100%;
     height: 100%;
@@ -196,6 +223,7 @@ header .caixa_usuario img {
     object-fit: cover;
     border: 2px solid var(--color-grey-6);
 }
+
 header .caixa_usuario h2 {
     font-family: var(--fonte-base);
     font-weight: 600;
@@ -203,13 +231,189 @@ header .caixa_usuario h2 {
     color: var(--color-grey-6);
 }
 
-
 @media(min-width: 620px) {
     header .caixa_usuario h2 {
         align-self: flex-start;
         margin-top: 0.3rem;
     }
 }
+main {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_tarefas {
+    height: 61px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: var(--fonte-base);
+}
+
+.div_categorias {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.todos {
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--fonte-base);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.concluidos {
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--fonte-base);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.botao_criar {
+    background-color: var(--color-blue);
+    text-align: center;
+    height: 28px;
+    width: 120px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--fonte-base);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.margin_tabela {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabela {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+tr {
+    text-align: center;
+}
+
+tr th {
+    padding: 20px 10px;
+}
+
+
+.status_tabela {
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-7);
+}
+
+.titulo_div {
+    text-align: left;
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-7);
+}
+
+.descricao_tabela {
+    display: none;
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-7);
+}
+
+.categoria_tabela {
+    display: none;
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-7);
+}
+
+.editar_tabela {
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-7);
+}
+
+.texto_div {
+    text-align: left;
+    padding: 0 10px;
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-2);
+
+}
+
+.descricao_texto {
+    display: none;
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.categoria_texto {
+    display: none;
+}
+
+
+.botao_texto {
+    display: none;
+    background-color: var(--color-light-blue);
+    width: 83px;
+    height: 24px;
+    border-radius: 4px;
+    color: var(--color-blue);
+    font-family: var(--fonte-base);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+}
+tbody td {
+    border-top: 1px solid var(--color-grey-4);
+    border-bottom: 1px solid var(--color-grey-4);
+    padding: 10px;
+}
+.carregar_conteudo {
+    margin-top: 20px;
+    text-align: center;
+    font-family: var(--fonte-base);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    width: 152px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
 .caixa_editar_perfil {
     width: 100%;
     height: 100vh;
@@ -297,7 +501,7 @@ header .caixa_usuario h2 {
 }
 
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -305,29 +509,28 @@ header .caixa_usuario h2 {
     width: 300px;
 }
 
-.form{
+.form {
     width: 450px;
     height: 400px;
 }
 
-.form input{
+.form input {
     width: 350px;
 
 }
 
-.form textarea{
+.form textarea {
     width: 350px;
 }
 
-.form select{
+.form select {
     width: 350px;
 }
 
-.divSelect select{
+.divSelect select {
     margin: 0 auto;
     margin-top: 10px;
 }
-
-.form button{
+.form button {
     width: 400px;
 }
