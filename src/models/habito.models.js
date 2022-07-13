@@ -1,7 +1,6 @@
 import Api from "../controller/api.controller.js";
 
 export default class Habito{
-
     
     static modal(){
     const body = document.querySelector("body")
@@ -70,6 +69,5 @@ export default class Habito{
        body.append(div);
 
         // div.style.display = "none"
-        console.log(div)
     }  
 } 

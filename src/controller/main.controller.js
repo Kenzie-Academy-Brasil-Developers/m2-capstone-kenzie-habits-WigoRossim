@@ -34,7 +34,8 @@ button.addEventListener("click", async (event) => {
 
 
     const newHabit = await Api.criarHabito(data)
-    console.log(newHabit)
+
+    console.log(inputTitulo)
     div.style.display = "flex"
 })
 
