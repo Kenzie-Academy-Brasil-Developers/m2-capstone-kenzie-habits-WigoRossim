@@ -576,4 +576,11 @@ tr th {
     width: 400px;
 }
 
+
+.check_habito_comcluido {
+    text-decoration: line-through;
+}
+
+.check_sucess{
+    accent-color: var(--color-sucess);
 }
