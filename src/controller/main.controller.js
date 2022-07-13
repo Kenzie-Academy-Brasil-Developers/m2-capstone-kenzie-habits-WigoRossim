@@ -1,41 +1,88 @@
-import Habito from "../models/habito.models.js"
+import Modal from "../models/habito.models.js"
 import Api from "./api.controller.js"
 
+Modal.modal_habito()
 
-//const newLogin = await Api.login({
-//    "email": "grupo1Caique@mail.com",
-//    "password": "41c6bf513bb94e29da99477a699abeb5"
-//})
-//
-//const novoHabito =  await Api.criarHabito({
-//    "habit_title": "dwada",
-//    "habit_description": "dddw",
-//    "habit_category": "saude"
-//})
+export default class Tabela {
+    static tabela = document.querySelector("tbody")
 
-//console.log(novoHabito)
+    static async renderizacao() {
 
-const inputTitulo = document.getElementsByName("title")[0]
-const inputDescricao = document.getElementsByName("comment")[0]
-const inputCategoria = document.getElementsByName("select")[0]
-const button = document.getElementsByClassName("botao_inserir")[0]
-const div = document.querySelector(".container")
+        const habitos = await Api.todosHabitos()
 
-button.addEventListener("click", async (event) => {
-    event.preventDefault()
-    console.log("oi")
+        habitos.forEach((elem) => {
+            const tr = document.createElement("tr")
+            const tdCheckbox = document.createElement("td")
+            const checkboxInput = document.createElement("input")
+            const tdTitulo = document.createElement("td")
+            const tdDescricao = document.createElement("td")
+            const tdCategoria = document.createElement("td")
+            const tdEditar = document.createElement("td")
+            const botaoCategoria = document.createElement("button")
+            const botaoEditar = document.createElement("button")
+            const img = document.createElement("img")
 
-    const data = {
+            tdCheckbox.classList.add("checkbox")
+            tdTitulo.classList.add("texto_div")
+            tdDescricao.classList.add("descricao_texto")
+            tdCategoria.classList.add("categoria_texto")
+            botaoCategoria.classList.add("botao_texto")
+            img.classList.add("reticencias")
+            botaoEditar.classList.add("botao_editar")
 
-        "habit_title": `${inputTitulo.value}`,
-        "habit_description": `${inputDescricao.value}`,
-        "habit_category": `${inputCategoria.value}`,
+            checkboxInput.type = "checkbox"
+            img.src = "../assets/img/reticencias.png"
+
+
+            tdTitulo.innerText = elem.habit_title
+            tdDescricao.innerText = elem.habit_description
+            tdCategoria.innerText = elem.habit_category
+
+
+            botaoEditar.append(img)
+            tdEditar.append(botaoEditar)
+            tdCheckbox.append(checkboxInput)
+            tdCategoria.append(botaoCategoria)
+            tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
+            this.tabela.append(tr)
+        })
     }
 
+}
 
-    const newHabit = await Api.criarHabito(data)
-    console.log(newHabit)
-    div.style.display = "flex"
-})
+export class Habito {
+    static async criarHabito() {
+
+        const inputTitulo = document.getElementsByName("title")[0]
+        const inputDescricao = document.getElementsByName("comment")[0]
+        const inputCategoria = document.getElementsByName("select")[0]
+        const button = document.getElementsByClassName("botao_inserir")[0]
+        const div = document.querySelector(".container")
+
+        button.addEventListener("click", async (event) => {
+            event.preventDefault()
+            console.log("oi")
+
+            const data = {
+
+                "habit_title": `${inputTitulo.value}`,
+                "habit_description": `${inputDescricao.value}`,
+                "habit_category": `${inputCategoria.value}`,
+            }
+
+
+            const newHabit = await Api.criarHabito(data)
+            console.log(newHabit)
+            div.style.display = "flex"
+            // location.reload()
+        })
+    }
+}
+
+Habito.criarHabito()
+
+
+
+
 
 
