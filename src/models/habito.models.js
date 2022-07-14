@@ -91,7 +91,7 @@ export default class Modal {
 
         container.classList.add("container_modal")
         modal_info.classList.add("modalExcluir_info")
-        modal_divBotoes.classList.add("modal_divBotoes")
+        modal_divBotoes.classList.add("modalExcluir_divBotoes")
         botaoFechar.classList.add("modalExcluir_botaoFechar")
         h3.classList.add("modalExcluir_h3")
         textoPrincipal.classList.add("modalExcluir_textoPrincipal")
@@ -147,7 +147,9 @@ export default class Modal {
         const container = document.createElement("div")
         const modal_info = document.createElement("div")
         const modal_divBotoes = document.createElement("div")
-        const div_input = document.createElement("div")
+        const modal_divConteudoPrincipal = document.createElement("div")
+        const modal_divCabecalho = document.createElement("div")
+        const modaldiv_status = document.createElement("div")
         const form = document.createElement("form")
 
         const botao_excluir = document.createElement("button")
@@ -168,10 +170,12 @@ export default class Modal {
         container.classList.add("container_modal")
         modal_info.classList.add("modal_info")
         modal_divBotoes.classList.add("modal_divBotoes")
+        modal_divCabecalho.classList.add("modal_divCabecalho")
+        modal_divConteudoPrincipal.classList.add("modal_divConteudoPrincipal")
         botao_fechar.classList.add("modal_botaoFechar")
         botao_salvar.classList.add("modal_botaoSalvar")
         botao_excluir.classList.add("modal_botaoExcluir")
-        div_input.classList.add("div_input")
+        modaldiv_status.classList.add("modaldiv_status")
 
         titulo.classList.add("modalEditar_titulo")
         descricao.classList.add("modalEditar_descricao")
@@ -218,8 +222,11 @@ export default class Modal {
 
 
         modal_divBotoes.append(botao_excluir, botao_salvar)
-        form.append(labelTitulo, titulo, labelDescricao, descricao, labelCategoria, categoria, labelStatus, status)
-        modal_info.append(botao_fechar, h3, form, modal_divBotoes)
+        modal_divCabecalho.append(h3, botao_fechar)
+        modaldiv_status.append(labelStatus, status)
+        form.append(labelTitulo, titulo, labelDescricao, descricao, labelCategoria, categoria, modaldiv_status)
+        modal_divConteudoPrincipal.append(modal_divCabecalho, form)
+        modal_info.append(modal_divConteudoPrincipal, modal_divBotoes)
         container.append(modal_info)
         modal_editar.append(container)
     }
