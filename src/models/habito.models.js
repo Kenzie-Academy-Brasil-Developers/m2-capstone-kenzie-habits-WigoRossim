@@ -56,11 +56,11 @@ export default class Modal {
         labelCategoria.innerText = "Categoria"
 
         option.innerText = "Selecionar categoria"
-        optionCasa.innerText = "Casa"
-        optionEstudo.innerText = "Estudos"
-        optionLazer.innerText = "Lazer"
-        optionTrabalho.innerText = "Trabalho"
-        optionSaude.innerText = "Saúde"
+        optionCasa.innerText = "casa"
+        optionEstudo.innerText = "estudos"
+        optionLazer.innerText = "lazer"
+        optionTrabalho.innerText = "trabalho"
+        optionSaude.innerText = "saude"
 
 
         categoria.append(option, optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude)
@@ -69,7 +69,7 @@ export default class Modal {
         div.append(formulario);
         body.append(div);
 
-        // div.style.display = "none"
+        div.style.display = "none"
     }
 
     static async modal_excluirHabito(id) {
@@ -225,4 +225,3 @@ export default class Modal {
     }
 
  }
-
