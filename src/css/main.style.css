@@ -614,7 +614,7 @@ tr th {
     height: inherit;
 }
 
-.modal_info {
+.modal_info, .modalExcluir_info {
     background-color: var(--color-white);
     width: 30vw;
     height: 70vh;
@@ -625,6 +625,65 @@ tr th {
     position: relative;
     font-family: var(--fonte-base);
     align-items: center;
+}
+
+.modalExcluir_info{
+    width: 35%;
+    height: 45vh;
+}
+
+.modalExcluir_divTexto{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 70%;
+    width: 90%;
+    align-items: center;
+}
+
+.modalExcluir_divTextoMain{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    align-items: flex-start;
+}
+
+.excluir_botaoExcluir{
+    width: 75%;
+    height: 2rem;
+    font-size: 0.9rem;
+    padding: 12px, 50px, 12px, 50px;
+    background-color: var(--color-error-1);
+    color: var(--color-white);
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.excluir_botaoCancelar{
+    width: 40%;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+.modalExcluir_span{
+    font-size: 14px;
+    margin-top: 1.1rem;
+}
+.modalExcluir_textoPrincipal, .modalExcluir_h3{
+    font-size: 1.3rem;
+}
+.modalExcluir_titulo{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.modalExcluir_botaoFechar{
+    background-color: transparent;
+    font-size: 1rem;
 }
 
 .modalEditar_form {
@@ -667,7 +726,7 @@ tr th {
     margin-bottom: 0.5rem;
 }
 
-.modal_info>h3 {
+.modal_info>h3, .modalExcluir_h3, .modalExcluir_textoPrincipal {
     font-weight: 600;
 }
 
@@ -689,19 +748,24 @@ tr th {
 }
 
 .modal_divBotoes {
-    width: 80%;
+    width: 70%;
+    display: flex;
+    gap: 0.8rem;
 }
 
 .modal_botaoExcluir {
     background-color: var(--color-grey-5);
     height: 2rem;
     width: 40%;
+    font-size: 1rem;
 }
 
 .modal_botaoSalvar {
     background-color: var(--color-blue-disable);
     width: 60%;
     height: 2rem;
+    font-size: 1rem;
+
 }
 
 .check_habito_comcluido {

@@ -44,7 +44,6 @@ export default class Tabela {
         const habitos = data
 
         const tbody = this.cabecalhoTabela()
-        console.log(tbody)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
@@ -86,8 +85,11 @@ export default class Tabela {
             botaoCategoria.innerText = elem.habit_category
 
             botaoEditar.addEventListener("click", (event) => {
+                const modal_editar = document.getElementsByClassName("modal_editar")[0]
                 event.preventDefault()
+                modal_editar.classList.remove("hidden")
                 Modal.modal_editarHabito(tr.id)
+
             })
 
             botaoEditar.append(img)
@@ -95,7 +97,6 @@ export default class Tabela {
             tdCheckbox.append(checkboxInput)
             tdCategoria.append(botaoCategoria)
             tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
-            // this.tabela.append(tr)
             tbody.append(tr)
         })
     }
