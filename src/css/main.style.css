@@ -113,9 +113,10 @@ header .caixa_header_color {
 
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 30%;
+    z-index: 1000;
+    left: 38%;
+    position: absolute;
     border-radius: 10px;
     width: 350px;
     height: 480px;
@@ -144,7 +145,7 @@ header .caixa_header_color {
     margin-left: 20px;
     width: 273px;
     height: 30px;
-    font-weight: bold;
+    
 }
 
 .form textarea {
@@ -155,7 +156,7 @@ header .caixa_header_color {
     margin-left: 20px;
     border-style: none;
     font-size: 16px;
-    font-weight: bold;
+   
 }
 
 /*.form select{
@@ -189,6 +190,7 @@ header .caixa_header_color {
         align-items: center;
         height: 183px;
     }
+
 }
 
 .caixa_usuario {
@@ -563,29 +565,43 @@ tr th {
 
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    width: 300px;
+    top: 10%;
+    z-index: 1000;
+    left: 7%;
+    position: absolute;
+    width: 200px;
 }
 
 .form {
-    width: 450px;
+    width: 320px;
     height: 400px;
 }
 
+.form label{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.form h1{
+   margin-top: 30px;
+   margin-left: 20px;
+}
+
 .form input {
-    width: 350px;
+    width: 280px;
+    background-color: #F1F3F5;
 
 }
 
 .form textarea {
-    width: 350px;
+    width: 280px;
+    background-color: #F1F3F5;
 }
 
 .form select {
-    width: 350px;
+    width: 280px;
+    background-color: #F1F3F5;
 }
 
 .divSelect select {
@@ -594,7 +610,9 @@ tr th {
 }
 
 .form button {
-    width: 400px;
+    width: 280px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .modal {
@@ -742,6 +760,46 @@ tr th {
 .check_sucess {
     accent-color: var(--color-sucess);
 }
+
+@media(min-width: 620px) {
+    .container{
+        top: 15%;
+        z-index: 1000;
+        left: 38%;
+        position: absolute;
+    }
+
+    .form{
+        width: 450px;
+        height: 450px;
+    }
+    .form label{
+        padding-bottom: 40px;
+    }
+
+    .form input{
+        width: 400px;
+        height: 40px;
+    }
+
+    .form textarea{
+        width: 400px;
+    }
+
+    .form select{
+        width: 400px;
+        height: 40px;
+    }
+
+    .form button{
+        width: 400px;
+        height: 40px;
+    }
+
+    .placeholder::placeholder{
+        padding-left: 20px;
+    }
+    }
 
 .modalExcluir_info {
     width: 35%;
