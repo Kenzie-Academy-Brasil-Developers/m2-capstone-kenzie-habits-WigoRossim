@@ -72,150 +72,194 @@ export default class Modal {
         body.append(div);
 
         div.style.display = "none"
-        console.log(div)
     }
 
-//     static async modal_excluirHabito(id) {
-//         const modal_excluir = document.querySelector(".modal_excluir")
-    
-//         const container = document.createElement("div")
-//         const modal_info = document.createElement("div")
-//         const modal_divBotoes = document.createElement("div")
-//         const botaoFechar = document.createElement("button")
-//         const h3 = document.createElement("h3")
-
-//         const textoPrincipal = document.createElement("h3")
-//         const span = document.createElement("span")
-//         const botaoCancelar = document.createElement("button")
-//         const botaoExcluir = document.createElement("button")
-
-//         container.classList.add("container_modal")
-//         modal_info.classList.add("modalExcluir_info")
-//         modal_divBotoes.classList.add("modal_divBotoes")
-//         botaoFechar.classList.add("modal_botaoFechar")
-//         h3.classList.add("modalExcluir_h3")
-//         textoPrincipal.classList.add("modalExcluir_textoPrincipal")
-//         span.classList.add("modalExcluir_span")
-//         botaoCancelar.classList.add("excluir_botaoCancelar")
-//         botaoExcluir.classList.add("excluir_botaoExcluir")
-
-//         botaoFechar.innerText = "x"
-//         h3.innerText = "Excluir hábito"
-//         textoPrincipal.innerText = "Certeza que deseja excluir este hábito?"
-//         span.innerText = "Após executar essa ação não será possível desfazer"
-
-//         botaoCancelar.innerText = "Cancelar"
-//         botaoExcluir.innerText = "Excluir"
-
-//         botaoCancelar.addEventListener("click", (event) => {
-//             event.preventDefault()
-//             modal_excluir.classList.add("hidden")
-//         })
-
-//         botaoExcluir.addEventListener("click", async (event) => {
-//             event.preventDefault()
-//             await Api.deletarHabito(id)
-//             location.reload()
-//         })
-
-//         modal_divBotoes.append(botaoCancelar, botaoExcluir)
-//         modal_info.append(botaoFechar, h3, textoPrincipal, span, modal_divBotoes)
-//         container.append(modal_info)
-//         modal_excluir.apppend(container)
-//     }
+    static async modal_excluirHabito(id) {
+        const modal_excluir = document.querySelector(".modal_excluir")
+        const modal_editar = document.querySelector(".modal_editar")
 
 
-//     static async modal_editarHabito(id) {
-//         const options = ["Lazer", "Saúde", "Casa", "Estudo", "Trabalho"]//REVER ESSE AQUI!
-//         const modal_editar = document.getElementsByClassName("modal_editar")[0]
-//         const modal_excluir = document.getElementsByClassName("modal_excluir")[0]
+        const container = document.createElement("div")
+        const modal_info = document.createElement("div")
+        const modal_divBotoes = document.createElement("div")
+        const modal_texto = document.createElement("div")
+        const modal_textoPrincipal = document.createElement("div")
+        const modal_titulo = document.createElement("div")
+        const botaoFechar = document.createElement("button")
+        const h3 = document.createElement("h3")
 
-//         modal_editar.classList.remove("hidden")
-//         const habitos = await Api.todosHabitos()
+        const textoPrincipal = document.createElement("h3")
+        const span = document.createElement("span")
+        const botaoCancelar = document.createElement("button")
+        const botaoExcluir = document.createElement("button")
 
-//         const elemSelecionado = habitos.find((elem) => {
-//             return elem.habit_id == id
-//         })
-//         console.log(elemSelecionado)
+        container.classList.add("container_modal")
+        modal_info.classList.add("modalExcluir_info")
+        modal_divBotoes.classList.add("modalExcluir_divBotoes")
+        botaoFechar.classList.add("modalExcluir_botaoFechar")
+        h3.classList.add("modalExcluir_h3")
+        textoPrincipal.classList.add("modalExcluir_textoPrincipal")
+        span.classList.add("modalExcluir_span")
+        botaoCancelar.classList.add("excluir_botaoCancelar")
+        botaoExcluir.classList.add("excluir_botaoExcluir")
+        modal_texto.classList.add("modalExcluir_divTexto")
+        modal_textoPrincipal.classList.add("modalExcluir_divTextoMain")
+        modal_titulo.classList.add("modalExcluir_titulo")
 
-//         const container = document.createElement("div")
-//         const modal_info = document.createElement("div")
-//         const modal_divBotoes = document.createElement("div")
-//         const div_input = document.createElement("div")
-//         const form = document.createElement("form")
+        botaoFechar.innerText = "X"
+        h3.innerText = "Excluir hábito"
+        textoPrincipal.innerText = "Certeza que deseja excluir este hábito?"
+        span.innerText = "Após executar essa ação não será possível desfazer"
 
-//         const botao_excluir = document.createElement("button")
-//         const botao_salvar = document.createElement("button")
-//         const botao_fechar = document.createElement("button")
+        botaoCancelar.innerText = "Cancelar"
+        botaoExcluir.innerText = "Sim, excluir este hábito"
 
-//         const h3 = document.createElement("h3")
+        botaoFechar.addEventListener("click", (event) => {
+            event.preventDefault()
+            modal_excluir.classList.add("hidden")
+        })
 
-//         const labelTitulo = document.createElement("label")
-//         const titulo = document.createElement("input")
-//         const labelDescricao = document.createElement("label")
-//         const descricao = document.createElement("textarea")
-//         const labelCategoria = document.createElement("label")
-//         const categoria = document.createElement("select")
-//         const labelStatus = document.createElement("label")
-//         const status = document.createElement("input")
+        botaoExcluir.addEventListener("click", async (event) => {
+            event.preventDefault()
+            await Api.deletarHabito(id)
+            location.reload()
+        })
 
-//         container.classList.add("container_modal")
-//         modal_info.classList.add("modal_info")
-//         modal_divBotoes.classList.add("modal_divBotoes")
-//         botao_fechar.classList.add("modal_botaoFechar")
-//         botao_salvar.classList.add("modal_botaoSalvar")
-//         botao_excluir.classList.add("modal_botaoExcluir")
-//         div_input.classList.add("div_input")
+        botaoCancelar.addEventListener("click", (event)=>{
+            event.preventDefault()
+            modal_excluir.classList.add("hidden")
+            modal_editar.classList.remove("hidden")
+        })
 
-//         titulo.classList.add("modalEditar_titulo")
-//         descricao.classList.add("modalEditar_descricao")
-//         categoria.classList.add("modalEditar_categoria")
-//         status.classList.add("modalEditar_status")
-//         form.classList.add("modalEditar_form")
-
-//         options.forEach((elem) => {
-//             const option = document.createElement("option")
-//             option.value = elem
-//             option.innerText = elem
-//             categoria.append(option)
-//         })
-
-//         botao_fechar.innerText = "X"
-//         labelTitulo.innerText = "Titulo"
-//         titulo.value = elemSelecionado.habit_title
-//         labelDescricao.innerText = "Descrição"
-//         descricao.value = elemSelecionado.habit_description
-//         labelCategoria.innerText = "Categoria"
-//         categoria[0].value = elemSelecionado.habit_category //REVER AQUI!!!!
-//         console.log(elemSelecionado.habit_category)
-//         labelStatus.innerText = "Status"
+        modal_divBotoes.append(botaoCancelar, botaoExcluir)
+        modal_textoPrincipal.append(textoPrincipal, span)
+        modal_titulo.append(h3, botaoFechar)
+        modal_texto.append(modal_titulo, modal_textoPrincipal)
+        modal_info.append(modal_texto, modal_divBotoes)
+        container.append(modal_info)
+        modal_excluir.appendChild(container)
+    }
 
 
-//         h3.innerText = "Editar hábito"
-//         titulo.type = "text"
-//         status.type = "checkbox"
-//         botao_excluir.innerText = "Excluir"
-//         botao_salvar.innerText = "Salvar alterações"
+    static async modal_editarHabito(id) {
+        const options = ["Lazer", "Saúde", "Casa", "Estudo", "Trabalho"]//REVER ESSE AQUI!
+        const modal_editar = document.getElementsByClassName("modal_editar")[0]
+        const modal_excluir = document.getElementsByClassName("modal_excluir")[0]
+
+        modal_editar.classList.remove("hidden")
+        const habitos = await Api.todosHabitos()
+
+        const elemSelecionado = habitos.find((elem) => {
+            return elem.habit_id == id
+        })
+        console.log(elemSelecionado)
+
+        const container = document.createElement("div")
+        const modal_info = document.createElement("div")
+        const modal_divBotoes = document.createElement("div")
+        const modal_divConteudoPrincipal = document.createElement("div")
+        const modal_divCabecalho = document.createElement("div")
+        const modaldiv_status = document.createElement("div")
+        const form = document.createElement("form")
+
+        const botao_excluir = document.createElement("button")
+        const botao_salvar = document.createElement("button")
+        const botao_fechar = document.createElement("button")
+
+        const h3 = document.createElement("h3")
+
+        const labelTitulo = document.createElement("label")
+        const titulo = document.createElement("input")
+        const labelDescricao = document.createElement("label")
+        const descricao = document.createElement("textarea")
+        const labelCategoria = document.createElement("label")
+        const categoria = document.createElement("select")
+        const labelStatus = document.createElement("label")
+        const status = document.createElement("input")
+
+        container.classList.add("container_modal")
+        modal_info.classList.add("modal_info")
+        modal_divBotoes.classList.add("modal_divBotoes")
+        modal_divCabecalho.classList.add("modal_divCabecalho")
+        modal_divConteudoPrincipal.classList.add("modal_divConteudoPrincipal")
+        botao_fechar.classList.add("modal_botaoFechar")
+        botao_salvar.classList.add("modal_botaoSalvar")
+        botao_excluir.classList.add("modal_botaoExcluir")
+        modaldiv_status.classList.add("modaldiv_status")
+
+        titulo.classList.add("modalEditar_titulo")
+        descricao.classList.add("modalEditar_descricao")
+        categoria.classList.add("modalEditar_categoria")
+        status.classList.add("modalEditar_status")
+        form.classList.add("modalEditar_form")
+
+        options.forEach((elem) => {
+            const option = document.createElement("option")
+            option.value = elem
+            option.innerText = elem
+            categoria.append(option)
+        })
+
+        botao_fechar.innerText = "X"
+        labelTitulo.innerText = "Titulo"
+        labelTitulo.for = "habit_title"
+        titulo.name = "habit_title"
+        titulo.value = elemSelecionado.habit_title
+
+        labelDescricao.innerText = "Descrição"
+        labelDescricao.for = "habit_description"
+        descricao.name = "habit_description"
+        descricao.value = elemSelecionado.habit_description
+
+        labelCategoria.innerText = "Categoria"
+        labelCategoria.for = "habit_category"
+        categoria.name = "habit_category"
+        categoria[0].value = elemSelecionado.habit_category //REVER AQUI!!!!
+        console.log(elemSelecionado.habit_category)
+
+        labelStatus.innerText = "Status"
+        labelStatus.for = "habit_status"
+        status.name = "habit_status"
 
 
-//         botao_fechar.addEventListener("click", (event) => {
-//             event.preventDefault()
-//             modal_editar.classList.add("hidden")
-//         })
+        h3.innerText = "Editar hábito"
+        titulo.type = "text"
+        status.type = "checkbox"
+        botao_excluir.innerText = "Excluir"
+        botao_salvar.innerText = "Salvar alterações"
 
-//         botao_excluir.addEventListener("click", async (event) => {
-//             event.preventDefault()
-//             modal_editar.classList.add("hidden")
-//             modal_excluir.classList.remove("hidden")
-//             //VAI ABRIR OUTRO MODAL 
-//         })
+        const data = {}
 
+        botao_fechar.addEventListener("click", (event) => {
+            event.preventDefault()
+            modal_editar.classList.add("hidden")
+        })
 
-//         modal_divBotoes.append(botao_excluir, botao_salvar)
-//         form.append(labelTitulo, titulo, labelDescricao, descricao, labelCategoria, categoria, labelStatus, status)
-//         modal_info.append(botao_fechar, h3, form, modal_divBotoes)
-//         container.append(modal_info)
-//         modal_editar.append(container)
-//     }
+        botao_excluir.addEventListener("click", (event) => {
+            event.preventDefault()
+            this.modal_excluirHabito(id)
+            modal_editar.classList.add("hidden")
+            modal_excluir.classList.remove("hidden")
+        })
 
- }
+        botao_salvar.addEventListener("click", async(event) => {
+            event.preventDefault()
+            const formSpread = [...form]
+
+            formSpread.forEach((input) => {
+                data[input.name] = input.value
+            })
+            await Api.editarHabito(data, id)
+            location.reload()
+        })
+
+        modal_divBotoes.append(botao_excluir, botao_salvar)
+        modal_divCabecalho.append(h3, botao_fechar)
+        modaldiv_status.append(labelStatus, status)
+        form.append(labelTitulo, titulo, labelDescricao, descricao, labelCategoria, categoria)
+        modal_divConteudoPrincipal.append(modal_divCabecalho, form, modaldiv_status)
+        modal_info.append(modal_divConteudoPrincipal, modal_divBotoes)
+        container.append(modal_info)
+        modal_editar.append(container)
+    }
+}
