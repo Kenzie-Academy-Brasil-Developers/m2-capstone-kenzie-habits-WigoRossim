@@ -74,7 +74,6 @@ export default class Tabela {
             tdDescricao.innerText = elem.habit_description
             botaoCategoria.innerText = elem.habit_category
 
-
             botaoEditar.append(img)
             tdEditar.append(botaoEditar)
             tdCheckbox.append(checkboxInput)
