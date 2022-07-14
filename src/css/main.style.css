@@ -377,6 +377,8 @@ tr th {
     white-space: nowrap;
 }
 
+
+
 .botao_texto {
     background-color: var(--color-light-blue);
     width: 83px;
@@ -700,4 +702,12 @@ tbody td {
     background-color: var(--color-blue-disable);
     width: 60%;
     height: 2rem;
+}
+
+.check_habito_comcluido {
+    text-decoration: line-through;
+}
+
+.check_sucess{
+    accent-color: var(--color-sucess);
 }

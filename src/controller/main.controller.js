@@ -4,12 +4,47 @@ import Api from "./api.controller.js"
 Modal.modal_habito()
 
 export default class Tabela {
-    static tabela = document.querySelector("tbody")
+    // static tabela = document.querySelector("tbody")
 
-    static async renderizacao() {
+    static cabecalhoTabela() {
+        const tabela = document.querySelector(".tabela")
 
-        const habitos = await Api.todosHabitos()
-        console.log(habitos)
+
+        const tr = document.createElement("tr")
+
+        const thStatus = document.createElement("th")
+        const thTitulo = document.createElement("th")
+        const thDescricao = document.createElement("th")
+        const thCategoria = document.createElement("th")
+        const thEditar = document.createElement("th")
+
+        thStatus.classList.add("status_tabela")
+        thStatus.innerText = "Status"
+
+        thTitulo.classList.add("titulo_div")
+        thTitulo.innerText = "Título"
+
+        thDescricao.classList.add("descricao_tabela")
+        thDescricao.innerText = "Descrição"
+
+        thCategoria.classList.add("categoria_tabela")
+        thCategoria.innerText = "Categoria"
+
+        thEditar.classList.add("editar_tabela")
+        thEditar.innerText = "Editar"
+
+        tr.append(thStatus, thTitulo, thDescricao, thCategoria, thEditar)
+        tabela.append(tr)
+
+        return tabela
+    }
+
+    static async renderizacao(data) {
+
+        const habitos = data
+
+        const tbody = this.cabecalhoTabela()
+        console.log(tbody)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
@@ -37,7 +72,7 @@ export default class Tabela {
             tr.id = elem.habit_id
             tdTitulo.innerText = elem.habit_title
             tdDescricao.innerText = elem.habit_description
-            tdCategoria.innerText = elem.habit_category
+            botaoCategoria.innerText = elem.habit_category
 
             botaoEditar.addEventListener("click", (event) => {
                 event.preventDefault()
@@ -49,10 +84,53 @@ export default class Tabela {
             tdCheckbox.append(checkboxInput)
             tdCategoria.append(botaoCategoria)
             tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
-            this.tabela.append(tr)
+            // this.tabela.append(tr)
+            tbody.append(tr)
         })
     }
 
+    static async filtraHabitosConcluidos() {
+
+        const habitos = await Api.todosHabitos()
+
+        const pai = document.querySelector(".tabela")
+
+        const buttonConcluidos = document.querySelector(".concluidos")
+        buttonConcluidos.addEventListener('click', async () => {
+
+            pai.innerHTML = ""
+
+            let concluidos = []
+
+            for (let i = 0; i < habitos.length; i++) {
+
+                if (habitos[i].habit_status === true) {
+                    concluidos.push(habitos[i])
+                }
+
+            }
+            await Tabela.renderizacao(concluidos)
+
+
+
+        })
+
+    }
+
+    static async mostraTodosHabitos() {
+
+        const habitos = await Api.todosHabitos()
+
+        const pai = document.querySelector(".tabela")
+
+        const buttonTodos = document.querySelector(".todos")
+        buttonTodos.addEventListener('click', async (event) => {
+            pai.innerHTML = ""
+
+            await Tabela.renderizacao(habitos)
+        })
+
+    }
 }
 
 
@@ -84,6 +162,10 @@ export class Habito {
         })
     }
 }
+
+Tabela.filtraHabitosConcluidos()
+Tabela.mostraTodosHabitos()
+Tabela.cabecalhoTabela()
 
 Habito.criarHabito()
 
