@@ -124,6 +124,7 @@ export default class headerController {
         botaoEditarPerfil.addEventListener("click", (event) => {
             event.preventDefault()
             modalEditarPerfil.classList.add("form_edit_perfil_active")
+            modalEditarPerfil.classList.add("animacao")
             window.scrollTo(0, 0)
             document.documentElement.style.overflow = 'hidden'
             document.body.scroll = "no"
