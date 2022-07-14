@@ -484,7 +484,9 @@ tr th {
     align-items: center;
     gap: 2rem;
     border-radius: 8px;
+    display: flex;
 }
+
 
 .caixa_titulo_fechar {
     width: 100%;
