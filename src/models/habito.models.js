@@ -240,6 +240,7 @@ export default class Modal {
         botao_fechar.addEventListener("click", (event) => {
             event.preventDefault()
             modal_editar.classList.add("hidden")
+
         })
 
         botao_excluir.addEventListener("click", (event) => {
@@ -247,6 +248,7 @@ export default class Modal {
             this.modal_excluirHabito(id)
             modal_editar.classList.add("hidden")
             modal_excluir.classList.remove("hidden")
+            modal_excluir.classList.add("animacao")
         })
 
         botao_salvar.addEventListener("click", async(event) => {
