@@ -99,6 +99,7 @@ export default class Tabela {
                     const modal_editar = document.getElementsByClassName("modal_editar")[0]
                     event.preventDefault()
                     modal_editar.classList.remove("hidden")
+                    modal_editar.classList.add("animacao")
                     Modal.modal_editarHabito(tr.id)
     
                 })
