@@ -15,5 +15,8 @@ headerController.editarPerfil()
 
 Tabela.renderizacao()
 
+Modal.modal_editarHabito()
+Modal.modal_excluirHabito()
+
 
 

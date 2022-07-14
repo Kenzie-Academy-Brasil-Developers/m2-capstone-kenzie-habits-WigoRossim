@@ -39,6 +39,10 @@ export default class Tabela {
             tdDescricao.innerText = elem.habit_description
             tdCategoria.innerText = elem.habit_category
 
+            botaoEditar.addEventListener("click", (event) => {
+                event.preventDefault()
+                Modal.modal_editarHabito(tr.id)
+            })
 
             botaoEditar.append(img)
             tdEditar.append(botaoEditar)
@@ -50,6 +54,7 @@ export default class Tabela {
     }
 
 }
+
 
 export class Habito {
     static async criarHabito() {
