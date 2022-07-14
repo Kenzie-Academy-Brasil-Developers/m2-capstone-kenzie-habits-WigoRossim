@@ -145,7 +145,7 @@ header .caixa_header_color {
     margin-left: 20px;
     width: 273px;
     height: 30px;
-    
+
 }
 
 .form textarea {
@@ -156,7 +156,7 @@ header .caixa_header_color {
     margin-left: 20px;
     border-style: none;
     font-size: 16px;
-   
+
 }
 
 /*.form select{
@@ -577,15 +577,15 @@ tr th {
     height: 400px;
 }
 
-.form label{
+.form label {
     margin-left: 20px;
     margin-bottom: 20px;
-    
+
 }
 
-.form h1{
-   margin-top: 30px;
-   margin-left: 20px;
+.form h1 {
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
 .form input {
@@ -632,10 +632,9 @@ tr th {
     height: inherit;
 }
 
-.modal_info,
-.modalExcluir_info {
+.modal_info {
     background-color: var(--color-white);
-    width: 30vw;
+    width: 90vw;
     height: 70vh;
     border-radius: 8px;
     display: flex;
@@ -645,6 +644,33 @@ tr th {
     font-family: var(--fonte-base);
     align-items: center;
 }
+
+.modalExcluir_info {
+    background-color: var(--color-white);
+    width: 90vw;
+    height: 50vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    font-family: var(--fonte-base);
+    align-items: center;
+}
+
+@media(min-width: 620px) {
+
+    .modal_info {
+        width: 40vw;
+        height: 70vh;
+    }
+
+    .modalExcluir_info {
+        width: 45vw;
+        height: 50vh;
+    }
+}
+
 
 .modal_divCabecalho {
     display: flex;
@@ -762,49 +788,46 @@ tr th {
 }
 
 @media(min-width: 620px) {
-    .container{
+    .container {
         top: 15%;
         z-index: 1000;
         left: 38%;
         position: absolute;
     }
 
-    .form{
+    .form {
         width: 450px;
         height: 450px;
     }
-    .form label{
+
+    .form label {
         padding-bottom: 40px;
     }
 
-    .form input{
+    .form input {
         width: 400px;
         height: 40px;
     }
 
-    .form textarea{
+    .form textarea {
         width: 400px;
     }
 
-    .form select{
-        width: 400px;
-        height: 40px;
-    }
-
-    .form button{
+    .form select {
         width: 400px;
         height: 40px;
     }
 
-    .placeholder::placeholder{
+    .form button {
+        width: 400px;
+        height: 40px;
+    }
+
+    .placeholder::placeholder {
         padding-left: 20px;
     }
-    }
-
-.modalExcluir_info {
-    width: 35%;
-    height: 45vh;
 }
+
 
 .modalExcluir_divTexto {
     display: flex;
@@ -827,7 +850,7 @@ tr th {
 
 .excluir_botaoExcluir {
     width: 75%;
-    height: 2rem;
+    height: 2.2rem;
     font-size: 0.9rem;
     padding: 12px, 50px, 12px, 50px;
     background-color: var(--color-error-1);
@@ -838,15 +861,31 @@ tr th {
 
 .excluir_botaoCancelar {
     width: 40%;
-    height: 2rem;
+    height: 2.2rem;
     font-size: 0.9rem;
     font-weight: 600;
     border-radius: 4px;
 }
 
+@media(min-width: 620px) {
+
+    .excluir_botaoCancelar,
+    .excluir_botaoExcluir {
+        height: 2rem;
+    }
+
+}
+
 .modalExcluir_span {
-    font-size: 14px;
-    margin-top: 1.1rem;
+    font-size: 16px;
+    margin-top: 2rem;
+}
+
+@media(min-width: 620px) {
+    .modalExcluir_span {
+        font-size: 14px;
+        margin-top: 1.1rem;
+    }
 }
 
 .modalExcluir_textoPrincipal,
