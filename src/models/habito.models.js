@@ -32,6 +32,7 @@ export default class Modal {
 
         descricao.rows = "4"
         descricao.cols = "28"
+        descricao.style.resize = "none"
 
         labelTitulo.type = "text"
         labelTitulo.id = "title"
@@ -204,16 +205,19 @@ export default class Modal {
         labelTitulo.innerText = "Titulo"
         labelTitulo.for = "habit_title"
         titulo.name = "habit_title"
+        titulo.required = true
         titulo.value = elemSelecionado.habit_title
 
         labelDescricao.innerText = "Descrição"
         labelDescricao.for = "habit_description"
         descricao.name = "habit_description"
+        descricao.required = true
         descricao.value = elemSelecionado.habit_description
 
         labelCategoria.innerText = "Categoria"
         labelCategoria.for = "habit_category"
         categoria.name = "habit_category"
+        categoria.required = true
         categoria[0].value = elemSelecionado.habit_category //REVER AQUI!!!!
         console.log(elemSelecionado.habit_category)
 
@@ -225,6 +229,9 @@ export default class Modal {
         h3.innerText = "Editar hábito"
         titulo.type = "text"
         status.type = "checkbox"
+        if(elemSelecionado.habit_status===true){
+            status.checked = true
+        }
         botao_excluir.innerText = "Excluir"
         botao_salvar.innerText = "Salvar alterações"
 
@@ -244,6 +251,7 @@ export default class Modal {
 
         botao_salvar.addEventListener("click", async(event) => {
             event.preventDefault()
+
             const formSpread = [...form]
 
             formSpread.forEach((input) => {
@@ -262,4 +270,5 @@ export default class Modal {
         container.append(modal_info)
         modal_editar.append(container)
     }
+
 }
