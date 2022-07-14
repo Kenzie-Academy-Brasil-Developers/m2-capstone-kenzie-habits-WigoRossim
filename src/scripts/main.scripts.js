@@ -15,8 +15,6 @@ headerController.fecharEditarPerfil()
 headerController.sairDoApp()
 headerController.editarPerfil()
 
-// Tabela.renderizacao()
-
 
 
 
