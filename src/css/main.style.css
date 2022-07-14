@@ -487,9 +487,6 @@ tr th {
     display: none;
 }
 
-.form_edit_perfil.active {
-    display: flex;
-}
 
 .caixa_titulo_fechar {
     width: 100%;
