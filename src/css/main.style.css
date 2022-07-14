@@ -459,7 +459,13 @@ tr th {
 
 .botao_editar {
     background-color: transparent;
+    cursor: pointer;
 }
+
+button{
+    cursor: pointer;
+}
+
 
 
 .carregar_conteudo {
@@ -839,7 +845,7 @@ tr th {
 }
 
 .modal_botaoSalvar {
-    background-color: var(--color-blue-disable);
+    background-color: var(--color-blue);
     width: 60%;
     height: 2rem;
     font-size: 1rem;
