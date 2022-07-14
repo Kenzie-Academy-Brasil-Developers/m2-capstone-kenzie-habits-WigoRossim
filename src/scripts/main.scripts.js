@@ -14,7 +14,10 @@ headerController.fecharEditarPerfil()
 headerController.sairDoApp()
 headerController.editarPerfil()
 
-Tabela.renderizacao()
+// Tabela.renderizacao()
+
+// Modal.modal_editarHabito()
+// Modal.modal_excluirHabito()
 
 
 
