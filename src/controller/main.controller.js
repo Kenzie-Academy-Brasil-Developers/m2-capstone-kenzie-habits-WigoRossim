@@ -72,6 +72,11 @@ export default class Tabela {
     
                 checkboxInput.type = "checkbox"
                 img.src = "../assets/img/reticencias.png"
+
+                if(elem.habit_status === true){
+                    checkboxInput.checked = true
+                    tdTitulo.classList.add("check_habito_comcluido")
+                }
     
     
                 checkboxInput.classList.add("check_sucess")
