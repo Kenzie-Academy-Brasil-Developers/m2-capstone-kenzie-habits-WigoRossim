@@ -74,7 +74,9 @@ export default class Modal {
 
     static async modal_excluirHabito(id) {
         const modal_excluir = document.querySelector(".modal_excluir")
-    
+        const modal_editar = document.querySelector(".modal_editar")
+
+
         const container = document.createElement("div")
         const modal_info = document.createElement("div")
         const modal_divBotoes = document.createElement("div")
@@ -119,6 +121,12 @@ export default class Modal {
             event.preventDefault()
             await Api.deletarHabito(id)
             location.reload()
+        })
+
+        botaoCancelar.addEventListener("click", (event)=>{
+            event.preventDefault()
+            modal_excluir.classList.add("hidden")
+            modal_editar.classList.remove("hidden")
         })
 
         modal_divBotoes.append(botaoCancelar, botaoExcluir)
@@ -192,13 +200,24 @@ export default class Modal {
 
         botao_fechar.innerText = "X"
         labelTitulo.innerText = "Titulo"
+        labelTitulo.for = "habit_title"
+        titulo.name = "habit_title"
         titulo.value = elemSelecionado.habit_title
+
         labelDescricao.innerText = "Descrição"
+        labelDescricao.for = "habit_description"
+        descricao.name = "habit_description"
         descricao.value = elemSelecionado.habit_description
+
         labelCategoria.innerText = "Categoria"
+        labelCategoria.for = "habit_category"
+        categoria.name = "habit_category"
         categoria[0].value = elemSelecionado.habit_category //REVER AQUI!!!!
         console.log(elemSelecionado.habit_category)
+
         labelStatus.innerText = "Status"
+        labelStatus.for = "habit_status"
+        status.name = "habit_status"
 
 
         h3.innerText = "Editar hábito"
@@ -207,6 +226,7 @@ export default class Modal {
         botao_excluir.innerText = "Excluir"
         botao_salvar.innerText = "Salvar alterações"
 
+        const data = {}
 
         botao_fechar.addEventListener("click", (event) => {
             event.preventDefault()
@@ -220,15 +240,24 @@ export default class Modal {
             modal_excluir.classList.remove("hidden")
         })
 
+        botao_salvar.addEventListener("click", async(event) => {
+            event.preventDefault()
+            const formSpread = [...form]
+
+            formSpread.forEach((input) => {
+                data[input.name] = input.value
+            })
+            await Api.editarHabito(data, id)
+            location.reload()
+        })
 
         modal_divBotoes.append(botao_excluir, botao_salvar)
         modal_divCabecalho.append(h3, botao_fechar)
         modaldiv_status.append(labelStatus, status)
-        form.append(labelTitulo, titulo, labelDescricao, descricao, labelCategoria, categoria, modaldiv_status)
-        modal_divConteudoPrincipal.append(modal_divCabecalho, form)
+        form.append(labelTitulo, titulo, labelDescricao, descricao, labelCategoria, categoria)
+        modal_divConteudoPrincipal.append(modal_divCabecalho, form, modaldiv_status)
         modal_info.append(modal_divConteudoPrincipal, modal_divBotoes)
         container.append(modal_info)
         modal_editar.append(container)
     }
-
- }
+}
