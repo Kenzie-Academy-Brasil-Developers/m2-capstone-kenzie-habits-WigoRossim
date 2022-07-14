@@ -130,7 +130,7 @@ main{
     font-size: 1rem;
     padding: 0.75rem;
     margin-bottom: 2rem;
-    border: 2px solid var(--color-grey-5);
+    border: 2px transparent;
 }
 
 .button_login{
@@ -154,7 +154,6 @@ main{
 
 .popup_err{
     display: block;
-    background-color: rgba( 0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -167,28 +166,18 @@ main{
     color: var(--color-grey-6);
     font-weight: 700;
     padding: 1rem;
-    transition: 0.8s;
-    transition-delay: 1s;
 }
 
 .popup_conteudo{
     font-family: var(--fonte-base);
     text-align: center;
+    background-color: rgba(240, 56, 57, 0.8);
     width: 100%;
     max-width: 18rem;
-    margin: 30% auto;
-    background-color: var(--color-grey-5);
+    margin: 0 auto;
     border: 2px solid var(--color-error-1);
     padding: 1.5rem;
     border-radius: 8px;
-    transition: 0.5s;
-    transition-delay: 0.8s;
-}
-
-@media screen and (min-width: 64rem) {
-    .popup_conteudo{
-        margin: 15% auto; 
-    }
 }
 
 .popup_conteudo h3{
