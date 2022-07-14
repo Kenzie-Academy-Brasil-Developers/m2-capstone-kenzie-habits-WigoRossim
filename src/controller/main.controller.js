@@ -141,12 +141,21 @@ export class Habito {
         const inputTitulo = document.getElementsByName("title")[0]
         const inputDescricao = document.getElementsByName("comment")[0]
         const inputCategoria = document.getElementsByName("select")[0]
-        const button = document.getElementsByClassName("botao_inserir")[0]
+        const buttonInserir = document.getElementsByClassName("botao_inserir")[0]
+        const buttonCriar = document.querySelector(".botao_criar")
         const div = document.querySelector(".container")
 
-        button.addEventListener("click", async (event) => {
+        buttonCriar.addEventListener("click", (event)=>{
             event.preventDefault()
             console.log("oi")
+            div.style.display = "flex"
+        })
+
+
+        buttonInserir.addEventListener("click", async (event) => {
+            event.preventDefault()
+            console.log("oi")
+            
 
             const data = {
 
@@ -158,7 +167,7 @@ export class Habito {
 
             const newHabit = await Api.criarHabito(data)
             console.log(newHabit)
-            div.style.display = "flex"
+            div.style.display = "none"
             // location.reload()
         })
     }
@@ -174,4 +183,8 @@ Habito.criarHabito()
 
 
 
+    
 
+
+
+//     await Api.criarHabito(data)
