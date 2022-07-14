@@ -472,6 +472,8 @@ tr th {
     align-items: center;
 }
 
+
+
 .form_edit_perfil {
     width: 96%;
     max-width: 502px;
@@ -482,6 +484,11 @@ tr th {
     align-items: center;
     gap: 2rem;
     border-radius: 8px;
+    display: none;
+}
+
+.form_edit_perfil.active {
+    display: flex;
 }
 
 .caixa_titulo_fechar {
