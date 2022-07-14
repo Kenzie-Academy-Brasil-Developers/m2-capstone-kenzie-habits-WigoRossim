@@ -179,12 +179,24 @@ export class Habito {
         const inputCategoria = document.getElementsByName("select")[0]
         const buttonInserir = document.getElementsByClassName("botao_inserir")[0]
         const buttonCriar = document.querySelector(".botao_criar")
+        const buttonClose = document.querySelector(".button_close")
         const div = document.querySelector(".container")
+        const divGlobal = document.querySelector(".global")
+        
+
+        buttonClose.addEventListener("click", (event) =>{
+            event.preventDefault()
+            divGlobal.style.display = "none"
+            
+        })
 
         buttonCriar.addEventListener("click", (event)=>{
             event.preventDefault()
             console.log("oi")
-            div.style.display = "flex"
+            divGlobal.style.display = "flex"
+            window.scrollTo(0, 0)
+            document.documentElement.style.overflow = 'hidden'
+            document.body.scroll = "no"
         })
 
 
@@ -204,7 +216,7 @@ export class Habito {
             const newHabit = await Api.criarHabito(data)
             console.log(newHabit)
             div.style.display = "none"
-            // location.reload()
+            location.reload()
         })
     }
 }

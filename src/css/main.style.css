@@ -111,6 +111,21 @@ header .caixa_header_color {
     }
 }
 
+.global {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+}
+
+.background{
+    background-color: var(--color-shadow-modal);
+    opacity: 0.8;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+}
 
 .container {
     top: 30%;
@@ -121,10 +136,22 @@ header .caixa_header_color {
     width: 350px;
     height: 480px;
     font-family: var(--fonte-base);
+    background-color: var(--color-shadow-modal);
+}
+
+.container .button_close{
+    color: #ADB5BD;
+    width: 20px;
+    position: relative;
+    top: 0%;
+    right: 10%;
+    background-color: var(--color-grey-6);
+    cursor: pointer;
 }
 
 .form {
-    background-color: var(--color-grey-6)
+    background-color: var(--color-grey-6);
+    z-index: 2;
 }
 
 .form h1 {
@@ -594,6 +621,9 @@ tr th {
     display: none;
 }
 
+.container{
+    display: flex;
+}
 
 .container {
     top: 10%;
@@ -822,6 +852,7 @@ tr th {
 }
 
 @media(min-width: 620px) {
+    
     .container {
         top: 15%;
         z-index: 1000;
@@ -834,6 +865,10 @@ tr th {
         height: 450px;
     }
 
+    .form h1{
+        width: 200px;
+    }
+    
     .form label {
         padding-bottom: 40px;
     }
@@ -860,7 +895,20 @@ tr th {
     .placeholder::placeholder {
         padding-left: 20px;
     }
+
+    .container .button_close{
+        color: #ADB5BD;
+        width: 20px;
+        position: relative;
+        top: 0%;
+        right: 10%;
+        background-color: var(--color-grey-6);
+        cursor: pointer;
+    }
+
 }
+
+
 
 
 .modalExcluir_divTexto {
@@ -953,3 +1001,4 @@ tr th {
     display: flex;
     gap: 0.8rem;
 }
+

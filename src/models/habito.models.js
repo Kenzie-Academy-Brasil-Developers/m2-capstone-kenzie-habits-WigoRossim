@@ -5,8 +5,14 @@ export default class Modal {
 
     static modal_habito() {
         const body = document.querySelector("body")
+        const divGlobal = document.createElement("div")
+        divGlobal.classList.add("global")
+        const divBackground = document.createElement("div")
+        divBackground.classList.add("background")
         const div = document.createElement("div")
         div.classList.add("container")
+        const buttonClose = document.createElement("button")
+        buttonClose.classList.add("button_close")
         const formulario = document.createElement("form")
         div.classList.add("form")
         const titulo = document.createElement("h1")
@@ -49,7 +55,7 @@ export default class Modal {
 
 
 
-
+        buttonClose.innerHTML = `<i class="fa-solid fa-x fechar_editar_perfil"></i>`
         button.innerText = "Inserir"
         titulo.innerText = "Criar hábito"
         labelTitulo.innerText = "Titulo"
@@ -69,10 +75,12 @@ export default class Modal {
         categoria.append(option, optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude)
         divSelect.append(categoria)
         formulario.append(titulo, labelTitulo, inputTitulo, labelDescricao, descricao, labelCategoria, divSelect, button);
-        div.append(formulario);
-        body.append(div);
+        div.append( formulario, buttonClose);
+        divGlobal.append(divBackground, div)
+        body.append(divGlobal);
 
-        div.style.display = "none"
+        divGlobal.style.display = "none"
+        console.log(div)
     }
 
     static async modal_excluirHabito(id) {
