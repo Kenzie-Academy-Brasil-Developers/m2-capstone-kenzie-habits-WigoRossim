@@ -12,8 +12,10 @@ export default class Modal {
         const titulo = document.createElement("h1")
         const labelTitulo = document.createElement("label")
         const inputTitulo = document.createElement("input")
+        inputTitulo.classList.add("placeholder")
         const labelDescricao = document.createElement("label")
         const descricao = document.createElement("textarea")
+        descricao.classList.add("placeholder")
         const labelCategoria = document.createElement("label")
         const categoria = document.createElement("select")
         const divSelect = document.createElement("div")
@@ -60,7 +62,7 @@ export default class Modal {
         optionEstudo.innerText = "estudos"
         optionLazer.innerText = "lazer"
         optionTrabalho.innerText = "trabalho"
-        optionSaude.innerText = "saude"
+        optionSaude.innerText = "saude"   
 
 
         categoria.append(option, optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude)
