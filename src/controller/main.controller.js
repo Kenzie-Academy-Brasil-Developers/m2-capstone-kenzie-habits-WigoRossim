@@ -195,6 +195,7 @@ export class Habito {
             event.preventDefault()
             console.log("oi")
             divGlobal.style.display = "flex"
+            divGlobal.classList.add("animacao")
             window.scrollTo(0, 0)
             document.documentElement.style.overflow = 'hidden'
             document.body.scroll = "no"
