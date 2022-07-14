@@ -4,7 +4,8 @@ import Api from "./api.controller.js"
 Modal.modal_habito()
 
 export default class Tabela {
-    // static tabela = document.querySelector("tbody")
+
+    static contator = 10
 
     static cabecalhoTabela() {
         const tabela = document.querySelector(".tabela")
@@ -43,61 +44,73 @@ export default class Tabela {
 
         const habitos = data
 
+
         const tbody = this.cabecalhoTabela()
-        console.log(tbody)
 
-        habitos.forEach((elem) => {
-            const tr = document.createElement("tr")
-            const tdCheckbox = document.createElement("td")
-            const checkboxInput = document.createElement("input")
-            const tdTitulo = document.createElement("td")
-            const tdDescricao = document.createElement("td")
-            const tdCategoria = document.createElement("td")
-            const tdEditar = document.createElement("td")
-            const botaoCategoria = document.createElement("button")
-            const botaoEditar = document.createElement("button")
-            const img = document.createElement("img")
+        for(let ind = 1; ind <= this.contator; ind++){
 
-            tdCheckbox.classList.add("checkbox")
-            tdTitulo.classList.add("texto_div")
-            tdDescricao.classList.add("descricao_texto")
-            tdCategoria.classList.add("categoria_texto")
-            botaoCategoria.classList.add("botao_texto")
-            img.classList.add("reticencias")
-            botaoEditar.classList.add("botao_editar")
+            const elem = habitos[ind]
+            if(elem !== undefined){
+                const tr = document.createElement("tr")
+                const tdCheckbox = document.createElement("td")
+                const checkboxInput = document.createElement("input")
+                const tdTitulo = document.createElement("td")
+                const tdDescricao = document.createElement("td")
+                const tdCategoria = document.createElement("td")
+                const tdEditar = document.createElement("td")
+                const botaoCategoria = document.createElement("button")
+                const botaoEditar = document.createElement("button")
+                const img = document.createElement("img")
+    
+                tdCheckbox.classList.add("checkbox")
+                tdTitulo.classList.add("texto_div")
+                tdDescricao.classList.add("descricao_texto")
+                tdCategoria.classList.add("categoria_texto")
+                botaoCategoria.classList.add("botao_texto")
+                img.classList.add("reticencias")
+                botaoEditar.classList.add("botao_editar")
+    
+                checkboxInput.type = "checkbox"
+                img.src = "../assets/img/reticencias.png"
 
-            checkboxInput.type = "checkbox"
-            img.src = "../assets/img/reticencias.png"
-
-            checkboxInput.classList.add("check_sucess")
-            checkboxInput.classList.add(elem.habit_id)
-            checkboxInput.addEventListener("click", (event) => {
-                if(checkboxInput.checked){
+                if(elem.habit_status === true){
+                    checkboxInput.checked = true
                     tdTitulo.classList.add("check_habito_comcluido")
-                    Api.finalizarHabito(elem.habit_id)
-                }else{
-                    tdTitulo.classList.remove("check_habito_comcluido")
                 }
-            })
-
-            tr.id = elem.habit_id
-            tdTitulo.innerText = elem.habit_title
-            tdDescricao.innerText = elem.habit_description
-            botaoCategoria.innerText = elem.habit_category
-
-            botaoEditar.addEventListener("click", (event) => {
-                event.preventDefault()
-                Modal.modal_editarHabito(tr.id)
-            })
-
-            botaoEditar.append(img)
-            tdEditar.append(botaoEditar)
-            tdCheckbox.append(checkboxInput)
-            tdCategoria.append(botaoCategoria)
-            tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
-            // this.tabela.append(tr)
-            tbody.append(tr)
-        })
+    
+    
+                checkboxInput.classList.add("check_sucess")
+                checkboxInput.classList.add(elem.habit_id)
+                checkboxInput.addEventListener("click", (event) => {
+                    if(checkboxInput.checked){
+                        tdTitulo.classList.add("check_habito_comcluido")
+                        Api.finalizarHabito(elem.habit_id)
+                    }else{
+                        tdTitulo.classList.remove("check_habito_comcluido")
+                    }
+                })
+    
+                tr.id = elem.habit_id
+                tdTitulo.innerText = elem.habit_title
+                tdDescricao.innerText = elem.habit_description
+                botaoCategoria.innerText = elem.habit_category
+    
+                botaoEditar.addEventListener("click", (event) => {
+                    const modal_editar = document.getElementsByClassName("modal_editar")[0]
+                    event.preventDefault()
+                    modal_editar.classList.remove("hidden")
+                    Modal.modal_editarHabito(tr.id)
+    
+                })
+    
+                botaoEditar.append(img)
+                tdEditar.append(botaoEditar)
+                tdCheckbox.append(checkboxInput)
+                tdCategoria.append(botaoCategoria)
+                tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
+                tbody.append(tr)
+            } 
+        }
     }
 
     static async filtraHabitosConcluidos() {
@@ -142,6 +155,18 @@ export default class Tabela {
     static async telaDeInicio(){
         const habitos = await Api.todosHabitos()
             await Tabela.renderizacao(habitos)
+    }
+
+    static async btnCarregarMais() {
+        const habitos = await Api.todosHabitos()
+        const pai = document.querySelector(".tabela")
+        const carregarConteudo = document.querySelector(".carregar_conteudo")
+        carregarConteudo.addEventListener("click", async (event) => {
+            event.preventDefault()
+            pai.innerHTML = ""
+            this.contator += 10
+            await Tabela.renderizacao(habitos)
+        })
     }
 }
 
@@ -199,6 +224,7 @@ export class Habito {
 Tabela.filtraHabitosConcluidos()
 Tabela.mostraTodosHabitos()
 Tabela.telaDeInicio()
+Tabela.btnCarregarMais()
 
 Habito.criarHabito()
 

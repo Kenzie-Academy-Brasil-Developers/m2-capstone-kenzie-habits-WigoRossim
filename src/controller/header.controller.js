@@ -14,6 +14,7 @@ export default class headerController {
         figure.append(img)
         div.append(figure, h2)
     }
+
     static perfilDropDownMenu() {
         const responseLogin = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
         const div = document.querySelector(".dropdown_perfil")
@@ -24,6 +25,7 @@ export default class headerController {
         figure.append(img)
         div.append(figure)
     }
+
     static dropDownMenu() {
         const dropdownMenu = document.querySelector(".dropdown_menu")
         const caixaEditarPerfil = document.createElement("div")
@@ -44,6 +46,7 @@ export default class headerController {
         caixaSair.append(spanIconSair, btnSair)
         dropdownMenu.append(caixaEditarPerfil, caixaSair)
     }
+
     static async criarModalPerfilEdicao() {
         const responseDados = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
 
@@ -90,6 +93,7 @@ export default class headerController {
         caixaEditarPefil.append(form)
         body.append(caixaEditarPefil)
     }
+
     static botaoDesabilitado() {
         const btnEditPerfil = document.querySelector(".btn_edit_perfil")
         const inputNovoAvatar = document.getElementById("url_avatar_perfil")
@@ -112,6 +116,7 @@ export default class headerController {
 
         })
     }
+
     static async abrirEditarPerfil() {
         const botaoEditarPerfil = document.querySelector(".btn_abrir_edicao")
         const modalEditarPerfil = document.querySelector(".caixa_editar_perfil")
@@ -124,6 +129,7 @@ export default class headerController {
             document.body.scroll = "no"
         })
     }
+
     static editarPerfil() {
         const input = document.querySelector("#url_avatar_perfil")
         const form = document.querySelector(".form_edit_perfil")
@@ -156,6 +162,7 @@ export default class headerController {
         })
 
     }
+    
     static sairDoApp() {
         const btnSairApp = document.querySelector(".btn_sair_app")
 
