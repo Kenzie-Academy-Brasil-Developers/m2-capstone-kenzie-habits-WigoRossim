@@ -107,14 +107,10 @@ export default class Tabela {
                 if (habitos[i].habit_status === true) {
                     concluidos.push(habitos[i])
                 }
-
             }
             await Tabela.renderizacao(concluidos)
 
-
-
         })
-
     }
 
     static async mostraTodosHabitos() {
@@ -130,6 +126,11 @@ export default class Tabela {
             await Tabela.renderizacao(habitos)
         })
 
+    }
+
+    static async telaDeInicio(){
+        const habitos = await Api.todosHabitos()
+            await Tabela.renderizacao(habitos)
     }
 }
 
@@ -165,7 +166,7 @@ export class Habito {
 
 Tabela.filtraHabitosConcluidos()
 Tabela.mostraTodosHabitos()
-Tabela.cabecalhoTabela()
+Tabela.telaDeInicio()
 
 Habito.criarHabito()
 
