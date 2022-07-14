@@ -175,51 +175,51 @@ export default class Tabela {
 export class Habito {
     static async criarHabito() {
 
-        const inputTitulo = document.getElementsByName("title")[0]
-        const inputDescricao = document.getElementsByName("comment")[0]
-        const inputCategoria = document.getElementsByName("select")[0]
-        const buttonInserir = document.getElementsByClassName("botao_inserir")[0]
-        const buttonCriar = document.querySelector(".botao_criar")
-        const buttonClose = document.querySelector(".button_close")
-        const div = document.querySelector(".container")
-        const divGlobal = document.querySelector(".global")
-        
+       const inputTitulo = document.getElementsByName("title")[0]
+       const inputDescricao = document.getElementsByName("comment")[0]
+       const inputCategoria = document.getElementsByName("select")[0]
+       const buttonInserir = document.getElementsByClassName("botao_inserir")[0]
+       const buttonCriar = document.querySelector(".botao_criar")
+       const buttonClose = document.querySelector(".button_close")
+       const div = document.querySelector(".container")
+       const divGlobal = document.querySelector(".global")
+       
 
-        buttonClose.addEventListener("click", (event) =>{
-            event.preventDefault()
-            divGlobal.style.display = "none"
-            
-        })
+       buttonClose.addEventListener("click", (event) =>{
+           event.preventDefault()
+           divGlobal.style.display = "none"
+           
+       })
 
-        buttonCriar.addEventListener("click", (event)=>{
-            event.preventDefault()
-            console.log("oi")
-            divGlobal.style.display = "flex"
-            divGlobal.classList.add("animacao")
-            window.scrollTo(0, 0)
-            document.documentElement.style.overflow = 'hidden'
-            document.body.scroll = "no"
-        })
-
-
-        buttonInserir.addEventListener("click", async (event) => {
-            event.preventDefault()
-            console.log("oi")
-            
-
-            const data = {
-
-                "habit_title": `${inputTitulo.value}`,
-                "habit_description": `${inputDescricao.value}`,
-                "habit_category": `${inputCategoria.value}`,
-            }
+       buttonCriar.addEventListener("click", (event)=>{
+           event.preventDefault()
+           console.log("oi")
+           divGlobal.style.display = "flex"
+           divGlobal.classList.add("animacao")
+           window.scrollTo(0, 0)
+           document.documentElement.style.overflow = 'hidden'
+           document.body.scroll = "no"
+       })
 
 
-            const newHabit = await Api.criarHabito(data)
-            console.log(newHabit)
-            div.style.display = "none"
-            location.reload()
-        })
+       buttonInserir.addEventListener("click", async (event) => {
+           event.preventDefault()
+           console.log("oi")
+           
+
+           const data = {
+
+               "habit_title": `${inputTitulo.value}`,
+               "habit_description": `${inputDescricao.value}`,
+               "habit_category": `${inputCategoria.value}`,
+           }
+
+
+           const newHabit = await Api.criarHabito(data)
+           console.log(newHabit)
+           div.style.display = "none"
+           location.reload()
+       })
     }
 }
 

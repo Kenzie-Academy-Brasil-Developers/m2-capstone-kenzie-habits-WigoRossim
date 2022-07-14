@@ -65,10 +65,12 @@ export default class headerController {
         caixaEditarPefil.classList.add("caixa_editar_perfil")
         form.classList.add("form_edit_perfil")
         caixaFecharEdicao.classList.add("caixa_titulo_fechar")
+        btnFechar.classList.add("fechar_editar_perfil")
         btnConcluir.classList.add("btn_edit_perfil")
 
         h2.innerText = "Editar Perfil"
-        btnFechar.innerHTML = `<i class="fa-solid fa-x fechar_editar_perfil"></i>`
+        btnFechar.innerText = "X"
+        
         labelNome.for = "nome_user"
         labelNome.innerText = "Nome"
         inputNome.type = "text"
@@ -83,7 +85,6 @@ export default class headerController {
         inputUrl.name = "url"
         inputUrl.id = "url_avatar_perfil"
         inputUrl.placeholder = "https://imagem.com"
-        inputUrl.required = true
 
         btnConcluir.type = "submit"
         btnConcluir.innerText = "Salvar Alterações"
@@ -122,7 +123,6 @@ export default class headerController {
         const modalEditarPerfil = document.querySelector(".caixa_editar_perfil")
 
         botaoEditarPerfil.addEventListener("click", (event) => {
-            event.preventDefault()
             modalEditarPerfil.classList.add("form_edit_perfil_active")
             modalEditarPerfil.classList.add("animacao")
             window.scrollTo(0, 0)
@@ -133,9 +133,10 @@ export default class headerController {
 
     static editarPerfil() {
         const input = document.querySelector("#url_avatar_perfil")
-        const form = document.querySelector(".form_edit_perfil")
+        const btnEditar = document.querySelector(".btn_edit_perfil")
+
         const modalEditarPerfil = document.querySelector(".caixa_editar_perfil")
-        form.addEventListener("submit", async (event) => {
+        btnEditar.addEventListener("click", async (event) => {
             event.preventDefault()
             const novoAvatar = {}
             if (input.value !== "") {
