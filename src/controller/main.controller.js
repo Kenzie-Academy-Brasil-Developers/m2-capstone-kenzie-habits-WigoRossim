@@ -4,11 +4,47 @@ import Api from "./api.controller.js"
 Modal.modal_habito()
 
 export default class Tabela {
-    static tabela = document.querySelector("tbody")
+    // static tabela = document.querySelector("tbody")
 
-    static async renderizacao() {
+    static cabecalhoTabela(){
+        const tabela = document.querySelector(".tabela")
+       
 
-        const habitos = await Api.todosHabitos()
+        const tr = document.createElement("tr")
+
+        const thStatus = document.createElement("th")
+        const thTitulo = document.createElement("th")
+        const thDescricao = document.createElement("th")
+        const thCategoria = document.createElement("th")
+        const thEditar = document.createElement("th")
+
+        thStatus.classList.add("status_tabela")
+        thStatus.innerText = "Status"
+
+        thTitulo.classList.add("titulo_div")
+        thTitulo.innerText = "Título"
+
+        thDescricao.classList.add("descricao_tabela")
+        thDescricao.innerText = "Descrição"
+
+        thCategoria.classList.add("categoria_tabela")
+        thCategoria.innerText = "Categoria"
+
+        thEditar.classList.add("editar_tabela")
+        thEditar.innerText = "Editar"
+
+        tr.append(thStatus, thTitulo, thDescricao, thCategoria, thEditar)
+        tabela.append(tr)
+
+        return tabela
+    }
+
+    static async renderizacao(data) {
+        
+        const habitos = data
+
+        const tbody = this.cabecalhoTabela()
+        console.log(tbody)
 
         habitos.forEach((elem) => {
             const tr = document.createElement("tr")
@@ -22,7 +58,6 @@ export default class Tabela {
             const botaoEditar = document.createElement("button")
             const img = document.createElement("img")
 
-            checkboxInput.classList.add("check_sucess")
             tdCheckbox.classList.add("checkbox")
             tdTitulo.classList.add("texto_div")
             tdDescricao.classList.add("descricao_texto")
@@ -34,13 +69,6 @@ export default class Tabela {
             checkboxInput.type = "checkbox"
             img.src = "../assets/img/reticencias.png"
 
-            checkboxInput.addEventListener("click", (event) => {
-                tdTitulo.classList.toggle("check_habito_comcluido")
-                if (checkboxInput.checked) {
-                    Api.finalizarHabito(elem.habit_id)
-                }
-            })
-
             tr.id = elem.habit_id
             tdTitulo.innerText = elem.habit_title
             tdDescricao.innerText = elem.habit_description
@@ -51,11 +79,53 @@ export default class Tabela {
             tdCheckbox.append(checkboxInput)
             tdCategoria.append(botaoCategoria)
             tr.append(tdCheckbox, tdTitulo, tdDescricao, tdCategoria, tdEditar)
-
-            this.tabela.append(tr)
+            // this.tabela.append(tr)
+            tbody.append(tr)
         })
     }
 
+    static async filtraHabitosConcluidos(){
+        
+        const habitos = await Api.todosHabitos()
+
+        const pai = document.querySelector(".tabela")
+
+        const buttonConcluidos = document.querySelector(".concluidos")
+        buttonConcluidos.addEventListener('click', async () =>{
+            
+            pai.innerHTML = ""
+
+            let concluidos = []
+            
+            for(let i = 0; i < habitos.length; i++){
+                               
+                if(habitos[i].habit_status === true){
+                    concluidos.push(habitos[i])
+                } 
+                
+            }
+            await Tabela.renderizacao(concluidos)
+            
+
+            
+        })
+
+    }
+
+    static async mostraTodosHabitos(){
+
+        const habitos = await Api.todosHabitos()
+
+        const pai = document.querySelector(".tabela")
+
+        const buttonTodos = document.querySelector(".todos")
+        buttonTodos.addEventListener('click', async (event) => {
+            pai.innerHTML = ""
+
+            await Tabela.renderizacao(habitos)
+        })
+
+    }
 }
 
 export class Habito {
@@ -72,18 +142,29 @@ export class Habito {
             console.log("oi")
 
             const data = {
+
                 "habit_title": `${inputTitulo.value}`,
                 "habit_description": `${inputDescricao.value}`,
                 "habit_category": `${inputCategoria.value}`,
             }
 
+
             const newHabit = await Api.criarHabito(data)
             console.log(newHabit)
             div.style.display = "flex"
-            location.reload()
+            // location.reload()
         })
     }
 }
 
+Tabela.filtraHabitosConcluidos()
+Tabela.mostraTodosHabitos()
+Tabela.cabecalhoTabela()
+
 Habito.criarHabito()
+
+
+
+
+
 
