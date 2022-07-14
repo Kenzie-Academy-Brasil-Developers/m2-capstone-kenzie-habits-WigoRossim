@@ -6,9 +6,9 @@ Modal.modal_habito()
 export default class Tabela {
     // static tabela = document.querySelector("tbody")
 
-    static cabecalhoTabela(){
+    static cabecalhoTabela() {
         const tabela = document.querySelector(".tabela")
-       
+
 
         const tr = document.createElement("tr")
 
@@ -40,7 +40,7 @@ export default class Tabela {
     }
 
     static async renderizacao(data) {
-        
+
         const habitos = data
 
         const tbody = this.cabecalhoTabela()
@@ -74,6 +74,11 @@ export default class Tabela {
             tdDescricao.innerText = elem.habit_description
             botaoCategoria.innerText = elem.habit_category
 
+            botaoEditar.addEventListener("click", (event) => {
+                event.preventDefault()
+                Modal.modal_editarHabito(tr.id)
+            })
+
             botaoEditar.append(img)
             tdEditar.append(botaoEditar)
             tdCheckbox.append(checkboxInput)
@@ -84,35 +89,35 @@ export default class Tabela {
         })
     }
 
-    static async filtraHabitosConcluidos(){
-        
+    static async filtraHabitosConcluidos() {
+
         const habitos = await Api.todosHabitos()
 
         const pai = document.querySelector(".tabela")
 
         const buttonConcluidos = document.querySelector(".concluidos")
-        buttonConcluidos.addEventListener('click', async () =>{
-            
+        buttonConcluidos.addEventListener('click', async () => {
+
             pai.innerHTML = ""
 
             let concluidos = []
-            
-            for(let i = 0; i < habitos.length; i++){
-                               
-                if(habitos[i].habit_status === true){
+
+            for (let i = 0; i < habitos.length; i++) {
+
+                if (habitos[i].habit_status === true) {
                     concluidos.push(habitos[i])
-                } 
-                
+                }
+
             }
             await Tabela.renderizacao(concluidos)
-            
 
-            
+
+
         })
 
     }
 
-    static async mostraTodosHabitos(){
+    static async mostraTodosHabitos() {
 
         const habitos = await Api.todosHabitos()
 
@@ -127,6 +132,7 @@ export default class Tabela {
 
     }
 }
+
 
 export class Habito {
     static async criarHabito() {
