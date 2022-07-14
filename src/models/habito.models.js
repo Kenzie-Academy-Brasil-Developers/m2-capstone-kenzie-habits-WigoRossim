@@ -229,9 +229,6 @@ export default class Modal {
         h3.innerText = "Editar hábito"
         titulo.type = "text"
         status.type = "checkbox"
-        if(elemSelecionado.habit_status===true){
-            status.checked = true
-        }
         botao_excluir.innerText = "Excluir"
         botao_salvar.innerText = "Salvar alterações"
 
