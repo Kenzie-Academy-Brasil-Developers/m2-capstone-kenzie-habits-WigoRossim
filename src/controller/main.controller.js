@@ -69,6 +69,17 @@ export default class Tabela {
             checkboxInput.type = "checkbox"
             img.src = "../assets/img/reticencias.png"
 
+            checkboxInput.classList.add("check_sucess")
+            checkboxInput.classList.add(elem.habit_id)
+            checkboxInput.addEventListener("click", (event) => {
+                if(checkboxInput.checked){
+                    tdTitulo.classList.add("check_habito_comcluido")
+                    Api.finalizarHabito(elem.habit_id)
+                }else{
+                    tdTitulo.classList.remove("check_habito_comcluido")
+                }
+            })
+
             tr.id = elem.habit_id
             tdTitulo.innerText = elem.habit_title
             tdDescricao.innerText = elem.habit_description

@@ -104,9 +104,9 @@ export default class headerController {
                 btnEditPerfil.disabled = true;
             }
 
-            if(conteudo === ""){
+            if (conteudo === "") {
                 btnEditPerfil.classList.remove("btn_ativo")
-            }else{
+            } else {
                 btnEditPerfil.classList.add("btn_ativo")
             }
 
@@ -119,6 +119,9 @@ export default class headerController {
         botaoEditarPerfil.addEventListener("click", (event) => {
             event.preventDefault()
             modalEditarPerfil.classList.add("form_edit_perfil_active")
+            window.scrollTo(0, 0)
+            document.documentElement.style.overflow = 'hidden'
+            document.body.scroll = "no"
         })
     }
     static editarPerfil() {
@@ -128,14 +131,14 @@ export default class headerController {
         form.addEventListener("submit", async (event) => {
             event.preventDefault()
             const novoAvatar = {}
-            if(input.value !== "") {
+            if (input.value !== "") {
                 novoAvatar["usr_image"] = input.value
                 await Api.atualizarPerfil(novoAvatar)
-            const result = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
-            result["usr_image"] = input.value
-            localStorage.setItem("@kenzie-habits:dados", JSON.stringify(result))
-            modalEditarPerfil.classList.remove("form_edit_perfil_active")
-            }  
+                const result = JSON.parse(localStorage.getItem("@kenzie-habits:dados"))
+                result["usr_image"] = input.value
+                localStorage.setItem("@kenzie-habits:dados", JSON.stringify(result))
+                modalEditarPerfil.classList.remove("form_edit_perfil_active")
+            }
         })
 
 
@@ -148,6 +151,8 @@ export default class headerController {
         botaoFecharEdicao.addEventListener("click", (event) => {
             event.preventDefault()
             modalEditarPerfil.classList.remove("form_edit_perfil_active")
+            document.documentElement.style.overflow = 'auto'
+            document.body.scroll = "yes"
         })
 
     }
