@@ -47,7 +47,7 @@ export default class Tabela {
 
         const tbody = this.cabecalhoTabela()
 
-        for(let ind = 1; ind <= this.contator; ind++){
+        for(let ind = 0; ind <= this.contator; ind++){
 
             const elem = habitos[ind]
             if(elem !== undefined){
