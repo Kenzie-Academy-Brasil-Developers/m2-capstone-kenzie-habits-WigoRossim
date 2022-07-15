@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/83e21024c7.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="../css/reset.style.css">   
+    <link rel="stylesheet" href="../css/main.style.css">
+    <link rel="stylesheet" href="../css/base.style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600&display=swap" rel="stylesheet">
+
+    <title>Kenzie Habit</title>
+</head>
+
+<body>
+    <header class="container_header">
+        <div class="caixa_logo">          
+            <h1>Kenzie Habit</h1>
+            <div class="dropdown_perfil">
+                <div class="dropdown_menu">
+                </div>
+            </div>
+        </div>
+        <div class="caixa_header_color">
+            <div class="caixa_usuario">  
+            </div>
+        </div> 
+    </header>
+
+    <main>
+        <div class="div_tarefas">
+            <h2 class="titulo">Tarefas</h2>
+            <div class="div_categorias">
+                <button class="todos">Todos</button>
+                <button class="concluidos">Concluídos</button>
+                <button class="botao_criar">Criar</button>
+            </div>
+        </div>
+        <div class="margin_tabela">
+            <table class="tabela">
+                
+            </table>
+        </div>
+        <button class="carregar_conteudo">Carregar Mais</button>
+    </main>
+    
+
+   
+    <script type="module" src="../models/habito.models.js"></script>
+    <div class="modal_editar hidden modal"></div>
+    <div class="modal_excluir hidden modal"></div>
+
+
+
+    <script type="module" src="../scripts/main.scripts.js"></script>
+</body>
+</html>
