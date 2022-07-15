@@ -80,7 +80,6 @@ export default class Modal {
         body.append(divGlobal);
 
         divGlobal.style.display = "none"
-        console.log(div)
     }
 
     static async modal_excluirHabito(id) {
@@ -151,7 +150,7 @@ export default class Modal {
 
 
     static async modal_editarHabito(id) {
-        const options = ["Lazer", "Saúde", "Casa", "Estudo", "Trabalho"]//REVER ESSE AQUI!
+        const options = ["Lazer", "Saúde", "Casa", "Estudo", "Trabalho"]
         const modal_editar = document.getElementsByClassName("modal_editar")[0]
         const modal_excluir = document.getElementsByClassName("modal_excluir")[0]
 
@@ -161,7 +160,6 @@ export default class Modal {
         const elemSelecionado = habitos.find((elem) => {
             return elem.habit_id == id
         })
-        console.log(elemSelecionado)
 
         const container = document.createElement("div")
         const modal_info = document.createElement("div")
@@ -226,8 +224,6 @@ export default class Modal {
         labelCategoria.for = "habit_category"
         categoria.name = "habit_category"
         categoria.required = true
-        categoria[0].value = elemSelecionado.habit_category //REVER AQUI!!!!
-        console.log(elemSelecionado.habit_category)
 
         labelStatus.innerText = "Status"
         labelStatus.for = "habit_status"

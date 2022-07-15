@@ -193,7 +193,6 @@ export class Habito {
 
        buttonCriar.addEventListener("click", (event)=>{
            event.preventDefault()
-           console.log("oi")
            divGlobal.style.display = "flex"
            divGlobal.classList.add("animacao")
            window.scrollTo(0, 0)
@@ -204,8 +203,6 @@ export class Habito {
 
        buttonInserir.addEventListener("click", async (event) => {
            event.preventDefault()
-           console.log("oi")
-           
 
            const data = {
 
@@ -216,7 +213,6 @@ export class Habito {
 
 
            const newHabit = await Api.criarHabito(data)
-           console.log(newHabit)
            div.style.display = "none"
            location.reload()
        })
@@ -230,12 +226,3 @@ Tabela.btnCarregarMais()
 
 Habito.criarHabito()
 
-
-
-
-
-    
-
-
-
-//     await Api.criarHabito(data)
