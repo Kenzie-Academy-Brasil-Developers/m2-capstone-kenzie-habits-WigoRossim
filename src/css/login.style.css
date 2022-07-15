@@ -154,7 +154,6 @@ main{
 
 .popup_err{
     display: block;
-    background-color: rgba( 0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -172,10 +171,10 @@ main{
 .popup_conteudo{
     font-family: var(--fonte-base);
     text-align: center;
+    background-color: rgba(240, 56, 57, 0.8);
     width: 100%;
     max-width: 18rem;
-    margin: 30% auto;
-    background-color: var(--color-grey-5);
+    margin: 0 auto;
     border: 2px solid var(--color-error-1);
     padding: 1.5rem;
     border-radius: 8px;
